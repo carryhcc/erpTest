@@ -8,7 +8,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.util.Base64Util;
 import com.example.util.FileUtil;
 import org.bouncycastle.util.encoders.Base64Encoder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.*;
 import java.net.URLEncoder;

@@ -1,7 +1,7 @@
 package com.example.erptest;
 
 import cn.hutool.extra.mail.MailUtil;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by IntelliJ IDEA.
