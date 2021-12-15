@@ -13,6 +13,11 @@ import org.junit.jupiter.api.Test;
 public class EmailTest {
     @Test
     public void mailUp() {
-        MailUtil.send("hu.cc@qq.com", "测试", "邮件来自Hutool工具类测试", false);
+        System.out.println("开始邮件发送！");
+        try {
+            MailUtil.send("hu.cc@qq.com", "测试", "邮件来自Hutool工具类测试", false);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
