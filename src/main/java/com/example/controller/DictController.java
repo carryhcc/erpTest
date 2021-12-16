@@ -1,7 +1,7 @@
 package com.example.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dao.Dict;
-import com.example.dao.DictMap;
+import com.example.dao.DictCache;
 import com.example.mapper.DictMapper;
 import com.example.util.UnicodeUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -30,9 +30,9 @@ public class DictController {
         System.out.println("中途转换"+s);
         StringBuilder emojiOut = new StringBuilder();
         char[] sList = s.toCharArray();
-        for (int i = 0; i < sList.length; i++) {
+        for (char c : sList) {
 //            System.out.println("加密数据为"+sList[i]);
-            emojiOut.append(DictMap.getCode(String.valueOf(sList[i])));
+            emojiOut.append(DictCache.getValue(String.valueOf(c)));
         }
         System.out.println(emojiOut);
         return emojiOut.toString();
@@ -55,7 +55,7 @@ public class DictController {
     String encodeEmoji(@RequestParam String emoji){
         StringBuilder outPut=new StringBuilder();
         for (int i = 0; i < emoji.length()/2; i++) {
-            outPut.append(DictMap.getCode(emoji.substring(2*i,(2*i)+2)));
+            outPut.append(DictCache.getValue(emoji.substring(2*i,(2*i)+2)));
         }
         return UnicodeUtil.toString(outPut.toString());
     }
