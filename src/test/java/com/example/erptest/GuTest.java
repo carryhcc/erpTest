@@ -80,5 +80,8 @@ public class GuTest {
         public void emoji () throws Exception {
             System.out.println("\uD83C\uDF48");
         }
+//        static String getDict(String key){
+//
+//        }
     }
 
