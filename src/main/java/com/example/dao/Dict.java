@@ -13,4 +13,5 @@ public class Dict {
     public Long id;
     public String dictKey;
     public String dictValue;
+    public Integer status;
 }
