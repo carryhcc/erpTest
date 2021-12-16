@@ -1,5 +1,7 @@
 package com.example.erptest;
 
+import cn.hutool.core.text.UnicodeUtil;
+import cn.hutool.core.util.HexUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -80,8 +82,29 @@ public class GuTest {
         public void emoji () throws Exception {
             System.out.println("\uD83C\uDF48");
         }
-//        static String getDict(String key){
-//
-//        }
+        @Test
+    public void emojiEnCode () throws Exception {
+//        String emoji="🐶🐱🎩";
+        String hz="就这";
+//            System.out.println(emoji);
+//            System.out.println(emoji.length());
+//            System.out.println(emoji.substring(0,2));
+//            System.out.println(emoji.substring(2,4));
+//            System.out.println(emoji.substring(4,6));
+            char c0 = hz.charAt(0);
+            char c1 = hz.charAt(1);
+            String s0 = Integer.toHexString(c0);
+            String s1 = Integer.toHexString(c1);
+            Integer d1=Integer.parseInt(s0,16);
+            Integer d2=Integer.parseInt(s1,16);
+            System.out.println(c0);
+            System.out.println(c1);
+            System.out.println(s0);
+            System.out.println(s1);
+            String s = UnicodeUtil.toUnicode(hz, true);
+            System.out.println(s);
+            String res = UnicodeUtil.toString(s);
+            System.out.println(res);
+        }
     }
 

@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 public class Dict {
-    public String id;
-    public String key;
-    public String value;
+    public Long id;
+    public String dictKey;
+    public String dictValue;
 }
