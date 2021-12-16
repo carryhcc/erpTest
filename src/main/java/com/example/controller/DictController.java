@@ -1,4 +1,5 @@
 package com.example.controller;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dao.Dict;
 import com.example.dao.DictCache;
@@ -8,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -27,7 +29,7 @@ public class DictController {
         System.out.println("初始语句：" + code);
         //字符串转Unicode符
         String s = UnicodeUtil.toUnicode(code, true);
-        System.out.println("中途转换"+s);
+        System.out.println("中途转换" + s);
         StringBuilder emojiOut = new StringBuilder();
         char[] sList = s.toCharArray();
         for (char c : sList) {
@@ -37,25 +39,27 @@ public class DictController {
         System.out.println(emojiOut);
         return emojiOut.toString();
     }
-    String dict(String str){
-        QueryWrapper<Dict> wrapper=new QueryWrapper<>();
-        if (str.length()==1){
-            wrapper.eq("dict_key",str);
-            wrapper.eq("status",0);
+
+    String dict(String str) {
+        QueryWrapper<Dict> wrapper = new QueryWrapper<>();
+        if (str.length() == 1) {
+            wrapper.eq("dict_key", str);
+            wrapper.eq("status", 0);
             Dict dict = dictMapper.selectOne(wrapper);
             return dict.getDictValue();
-        }else {
-            wrapper.eq("dict_value",str);
-            wrapper.eq("status",0);
+        } else {
+            wrapper.eq("dict_value", str);
+            wrapper.eq("status", 0);
             Dict dict = dictMapper.selectOne(wrapper);
             return dict.getDictKey();
         }
     }
+
     @PostMapping("/decode")
-    String encodeEmoji(@RequestParam String emoji){
-        StringBuilder outPut=new StringBuilder();
-        for (int i = 0; i < emoji.length()/2; i++) {
-            outPut.append(DictCache.getValue(emoji.substring(2*i,(2*i)+2)));
+    String encodeEmoji(@RequestParam String emoji) {
+        StringBuilder outPut = new StringBuilder();
+        for (int i = 0; i < emoji.length() / 2; i++) {
+            outPut.append(DictCache.getValue(emoji.substring(2 * i, (2 * i) + 2)));
         }
         return UnicodeUtil.toString(outPut.toString());
     }
