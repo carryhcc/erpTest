@@ -34,9 +34,9 @@ public class DictController {
         String s = UnicodeUtil.toUnicode(code, true);
         System.out.println("中途转换"+s);
         StringBuilder emojiOut = new StringBuilder();
-        char ss[] = s.toCharArray();
-        for (int i = 0; i < ss.length; i++) {
-            emojiOut.append(dict(String.valueOf(ss[i])));
+        char[] sList = s.toCharArray();
+        for (int i = 0; i < sList.length; i++) {
+            emojiOut.append(dict(String.valueOf(sList[i])));
         }
         System.out.println(emojiOut);
         return emojiOut.toString();
@@ -58,15 +58,8 @@ public class DictController {
     String encodeEmoji(@RequestParam String emoji){
         StringBuilder outPut=new StringBuilder();
         for (int i = 0; i < emoji.length()/2; i++) {
-            String substring = emoji.substring(2*i,(2*i)+2);
-            String dict = dict(substring);
-            outPut.append(dict);
+            outPut.append(dict(emoji.substring(2*i,(2*i)+2)));
         }
-        //中途转换
-        String s = outPut.toString();
-        String res = UnicodeUtil.toString(s);
-        System.out.println(s);
-        System.out.println(res);
-        return res;
+        return UnicodeUtil.toString(outPut.toString());
     }
 }
