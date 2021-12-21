@@ -1,8 +1,8 @@
 package com.example.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.dao.Dict;
-import com.example.dao.DictCache;
+import com.example.model.Dict;
+import com.example.model.DictCache;
 import com.example.mapper.DictMapper;
 import com.example.util.UnicodeUtil;
 import lombok.extern.slf4j.Slf4j;

@@ -3,7 +3,7 @@ package com.example.erptest;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
-import com.example.dao.TestUser;
+import com.example.model.TestUser;
 import org.junit.jupiter.api.Test;
 
 import java.sql.*;

@@ -1,8 +1,7 @@
 package com.example.erptest;
 
 
-import cn.hutool.core.util.PhoneUtil;
-import com.example.dao.User;
+import com.example.model.User;
 import com.example.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

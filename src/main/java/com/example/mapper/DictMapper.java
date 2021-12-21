@@ -1,7 +1,7 @@
 package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.dao.Dict;
+import com.example.model.Dict;
 /**
  * Created by IntelliJ IDEA.
  *
