@@ -63,6 +63,8 @@ public class WxRobotText {
                 .body(body)
                 .execute().body();
 
+//        保存到notion
+//        NotionInstallUtil.addNotion("摸鱼",msg);
         System.out.println(result);
     }
 
