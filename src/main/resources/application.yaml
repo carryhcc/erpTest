@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    dynamic:
+      primary: mysql
+      strict: false
+      datasource:
+        mysql:
+          url: jdbc:mysql://hcc19970824.mysql.rds.aliyuncs.com:3306/rrsp?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+          username: root
+          password: Hcc19970824
+          hikari:
+            connection-init-sql: set names utf8mb4
+        oracle:
+          url: jdbc:oracle:thin:@47.97.27.187:1521:XE
+          username: hcc
+          password: hcc
+  redis:
+    host: 47.97.27.187
+    database: 7
+    port: 6379
+    password: Hcc123
+#notion:
+#  reboot: secret_Cy1GDn3CvfPexU9K86YVZwupV3sosqJHekTIGNwbSqX
+#  pereId: 97b56ba6d681429c91606f562265780d
+server:
+  port: 8081
