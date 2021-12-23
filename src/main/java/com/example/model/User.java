@@ -12,14 +12,14 @@ import lombok.Data;
  * Date: 2021/11/10 11:23
  */
 @Data
-@TableName(value = "user")
+@TableName(value = "USER_INFO")
 public class User {
-    @TableId
+    @TableId(value = "ID")
     private Long id;
-    @TableField(value = "name")
+    @TableField(value = "NAME")
     private String name;
-    @TableField(value = "age")
+    @TableField(value = "AGE")
     private Integer age;
-    @TableField(value = "email")
+    @TableField(value = "EMAIL")
     private String email;
 }

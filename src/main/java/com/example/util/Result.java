@@ -4,95 +4,105 @@ package com.example.util;
  * Created by IntelliJ IDEA.
  *
  * @author : cchu
- * Date: 2021/11/10 16:49
+ * Date: 2021/12/23 09:45
  */
 
-import com.github.pagehelper.PageInfo;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.example.model.CommonErrorCode;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.util.LinkedHashMap;
+import java.io.Serializable;
 
 /**
- * 统一API响应结果封装
+ * 返回统一数据结构
+ *
+ * @author purgeyao
+ * @since 1.0
  */
-public class Result extends LinkedHashMap<String, Object> {
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class Result<T> implements Serializable {
 
-    public Result() {
+    /**
+     * 是否成功
+     */
+    private Boolean status;
+
+    /**
+     * 服务器当前时间戳
+     */
+    private Long ts = System.currentTimeMillis();
+
+    /**
+     * 成功数据
+     */
+    private T data;
+
+    /**
+     * 错误码
+     */
+    private String code;
+
+    /**
+     * 错误描述
+     */
+    private String msg;
+
+    public static Result ofSuccess() {
+        Result result = new Result();
+        result.status = true;
+        return result;
     }
 
-    public Result putMsg(String msg) {
-        return this.set("msg", msg);
+    public static Result ofSuccess(Object data) {
+        Result result = new Result();
+        result.status = true;
+        result.setData(data);
+        return result;
     }
 
-    public Result putTitle(String title) {
-        return this.set("title", title);
+    public static Result ofFail(String code, String msg) {
+        Result result = new Result();
+        result.status = false;
+        result.code = code;
+        result.msg = msg;
+        return result;
     }
 
-    public Result putData(Object data) {
-        return this.set("data", data);
+    public static Result ofFail(String code, String msg, Object data) {
+        Result result = new Result();
+        result.status = false;
+        result.code = code;
+        result.msg = msg;
+        result.setData(data);
+        return result;
     }
 
-    public Object getData() {
-        return this.get("data");
+    public static Result ofFail(CommonErrorCode resultEnum) {
+        Result result = new Result();
+        result.status = false;
+        result.code = resultEnum.getCode();
+        result.msg = resultEnum.getMessage();
+        return result;
     }
 
-    public Result putTotal(int total) {
-        return this.set("total", total);
-    }
-
-    public Result putTotal(long total) {
-        return this.set("total", total);
-    }
-
-    public Result putRows(Object rows) {
-        return this.set("rows", rows);
-    }
-
-    public Result success(boolean success) {
-        return this.set("success", success);
-    }
-
-
-    public Result set(String key, Object value) {
-        this.put(key, value);
-        return this;
-    }
-
-    @Override
-    public Result put(String key, Object value) {
-        super.put(key, value);
-        return this;
-    }
-
-    public Result setPagionation(PageInfo pagionation, Object data) {
-        this.set("list", data);
-        this.set("pageSize", pagionation.getSize());
-        this.set("pageNo", pagionation.getPageNum());
-        this.set("next", pagionation.isHasNextPage() ? pagionation.getPageNum() + 1 : pagionation.getPageNum());
-        this.set("last", pagionation.getPages());
-        this.set("first", Integer.valueOf(1));
-        this.set("prev", pagionation.isHasPreviousPage() ? pagionation.getPageNum() - 1 : pagionation.getPageNum());
-        this.set("count", pagionation.getTotal());
-        return this;
-    }
-
-    public static Result newSuccess() {
-        return (new Result()).success(true);
-    }
-
-    public static Result newSuccess(Object data) {
-        return (new Result()).success(true).putData(data);
-    }
-
-    public static Result newFail(String errorMsg) {
-        return (new Result()).success(false).putMsg(errorMsg);
-    }
-
-
-    public static Object newEasyuiResult(long total, Object rows) {
-        return (new Result()).putTotal(total).putRows(rows);
-    }
-
-    public static Object newEasyuiResult(int total, Object rows) {
-        return (new Result()).putTotal(total).putRows(rows);
+    /**
+     * 获取 json
+     */
+    public String buildResultJson(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("status", this.status);
+        jsonObject.put("code", this.code);
+        jsonObject.put("ts", this.ts);
+        jsonObject.put("msg", this.msg);
+        jsonObject.put("data", this.data);
+        return JSON.toJSONString(jsonObject, SerializerFeature.DisableCircularReferenceDetect);
     }
 }

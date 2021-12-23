@@ -1,6 +1,5 @@
 package com.example.service;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.model.User;
 
@@ -10,6 +9,5 @@ import com.example.model.User;
  * @author : cchu
  * Date: 2021/12/22 17:47
  */
-@DS("oracle")
 public interface UserService extends IService<User> {
 }

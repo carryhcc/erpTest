@@ -1,10 +1,9 @@
 package com.example.controller;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import com.example.mapper.DictMapper;
-import com.example.mapper.UserMapper;
 import com.example.model.User;
 import com.example.service.UserService;
+import com.example.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +24,10 @@ public class SqlController {
     public UserService userService;
 
     @GetMapping("/select")
-
-    public List<User> select() {
-        return userService.list();
+    @DS("oracle")
+    public Result select() {
+        List<User> list = userService.list();
+        System.out.print(list);
+        return Result.ofSuccess(list);
     }
 }
