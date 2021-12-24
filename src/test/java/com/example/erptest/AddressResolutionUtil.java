@@ -51,7 +51,7 @@ public class AddressResolutionUtil {
     }
 
     public static void main(String[] args) throws UnknownHostException {
-        String geocoderLatitude = getGeocoderLatitude("安陆市凯旋城");
+        String geocoderLatitude = getGeocoderLatitude("湖北省武汉市江岸区刘家庙小区|江岸区|二七街|支农社区");
         System.out.print(JSONUtil.parseObj(geocoderLatitude).toStringPretty());
         InetAddress ip4 = Inet4Address.getLocalHost();
         System.out.println(ip4.getHostAddress());
