@@ -33,13 +33,13 @@ public class DocLookTest {
         Class.forName(driverClassName); //执行驱动
         con = DriverManager.getConnection(url, username, password); //获取连接
         String sql = "INSERT INTO test_user VALUES(?,?,?,?)"; //设置的预编译语句格式
-        for (int i = 0; i < all.size(); i++) {
+        for (TestUser testUser : all) {
             pstmt = con.prepareStatement(sql);
             int c = RandomUtil.randomInt(1, 100);
             pstmt.setString(1, String.valueOf(c));
-            pstmt.setString(2, all.get(i).get姓名());
-            pstmt.setString(3, all.get(i).get年龄().toString());
-            pstmt.setString(4, all.get(i).get性别());
+            pstmt.setString(2, testUser.get姓名());
+            pstmt.setString(3, testUser.get年龄().toString());
+            pstmt.setString(4, testUser.get性别());
             pstmt.executeUpdate();
         }
         //关闭资源,倒关

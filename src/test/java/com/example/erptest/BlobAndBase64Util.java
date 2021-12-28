@@ -17,7 +17,7 @@ import java.sql.Blob;
  */
 public class BlobAndBase64Util {
     public static String getBase64InBlob(Blob realBlob) throws Exception {
-        String result = new String();
+        String result = "";
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         // 创建一个长度为100的byte数组
         byte[] buff = new byte[100];
