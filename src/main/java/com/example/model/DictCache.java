@@ -35,7 +35,7 @@ public class DictCache {
             JSONObject jsonObject = JSONUtil.parseObj(stringObjectMap);
             biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
         }
-        logger.info("map的缓存"+biMap);
+        logger.info("BiMap的缓存添加成功");
         }
     @PreDestroy
     public void destroy() {
