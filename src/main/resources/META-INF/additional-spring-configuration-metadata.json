@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "notion.pereId",
+      "type": "java.lang.String",
+      "description": "Description for notion.pereId."
+    },
+    {
+      "name": "notion.reboot",
+      "type": "java.lang.String",
+      "description": "Description for notion.reboot."
+    }
+  ] }
