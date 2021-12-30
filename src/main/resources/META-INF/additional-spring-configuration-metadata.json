@@ -1,13 +1,23 @@
 {
   "properties": [
     {
-      "name": "notion.pereId",
+      "name": "others.notion.reboot",
       "type": "java.lang.String",
-      "description": "Description for notion.pereId."
+      "description": "Description for others.notion.reboot."
     },
     {
-      "name": "notion.reboot",
+      "name": "others.notion.pereId",
       "type": "java.lang.String",
-      "description": "Description for notion.reboot."
+      "description": "Description for others.notion.pereId."
+    },
+    {
+      "name": "others.wx.appid",
+      "type": "java.lang.String",
+      "description": "Description for others.wx.appid."
+    },
+    {
+      "name": "others.wx.appKey",
+      "type": "java.lang.String",
+      "description": "Description for others.wx.appKey."
     }
   ] }

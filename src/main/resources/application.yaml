@@ -19,8 +19,17 @@ spring:
     database: 7
     port: 6379
     password: Hcc123
-notion:
-  reboot: secret_Cy1GDn3CvfPexU9K86YVZwupV3sosqJHekTIGNwbSqX
-  pereId: 97b56ba6d681429c91606f562265780d
+others:
+  notion:
+    reboot: secret_Cy1GDn3CvfPexU9K86YVZwupV3sosqJHekTIGNwbSqX
+    pereId: 97b56ba6d681429c91606f562265780d
+  wx:
+    appId: wx15ae82b858b1469f
+    appKey: a7493d5d0bf5143bbaa61ffc8f3700a1
 server:
   port: 8081
+logging:
+  level:
+    root: info
+  file:
+    path: log

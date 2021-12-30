@@ -1,9 +1,10 @@
 package com.example.controller;
 
+
 import com.baomidou.dynamic.datasource.annotation.DS;
+import com.example.model.Result;
 import com.example.model.User;
 import com.example.service.UserService;
-import com.example.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,7 @@ public class SqlController {
     public Result select() {
         List<User> list = userService.list();
         System.out.print(list);
-        return Result.ofSuccess(list);
+
+        return Result.success(list);
     }
 }

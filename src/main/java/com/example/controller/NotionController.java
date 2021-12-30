@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/notion")
 public class NotionController {
 
-    @Value("${notion.reboot}")
+    @Value("${others.notion.reboot}")
     private String reboot;
-    @Value("${notion.pereId}")
+    @Value("${others.notion.pereId}")
     private String pereId;
 
     @PostMapping("/addTest")

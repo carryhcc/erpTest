@@ -5,6 +5,7 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import com.google.common.collect.HashBiMap;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -20,12 +21,12 @@ import java.util.Map;
  * @author : cchu
  * Date: 2021/12/16 16:51
  */
+@Slf4j
 @Component
 public class DictCache {
 
     public static HashBiMap<String, String> biMap = HashBiMap.create();;
 
-    private static final Logger logger = LoggerFactory.getLogger(DictCache.class);
 
     @PostConstruct//优先执行
     public static  void init() {
@@ -35,7 +36,9 @@ public class DictCache {
             JSONObject jsonObject = JSONUtil.parseObj(stringObjectMap);
             biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
         }
-        logger.info("BiMap的缓存添加成功");
+        log.info("BiMap的缓存添加成功");
+        log.error("BiMap的缓存添加成功");
+        log.debug("BiMap的缓存添加成功");
         }
     @PreDestroy
     public void destroy() {
