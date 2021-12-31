@@ -14,7 +14,7 @@
     <name>erpTest</name>
     <description>erpTest</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

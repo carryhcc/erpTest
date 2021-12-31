@@ -2,6 +2,7 @@ package com.example.model;
 
 import com.example.model.enmu.ResultEnum;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author : cchu
  * Date: 2021/12/29 09:55
  */
+@Slf4j
 @Data
 public class Result<T> {
 
@@ -29,6 +31,7 @@ public class Result<T> {
 
     /**
      * 成功时调用, 没有data内容
+     *
      * @return
      */
     public static <String> Result<String> success() {
@@ -59,7 +62,7 @@ public class Result<T> {
      * 根据自定义状态码{@code code}和自定义提示信息{@code msg}构建返回结果
      *
      * @param code 自定义状态码
-     * @param msg 自定义提示信息
+     * @param msg  自定义提示信息
      * @return Result
      */
     public static <Object> Result<Object> build(Integer code, String msg) {
@@ -70,8 +73,8 @@ public class Result<T> {
      * 根据自定义状态码{@code code}, 自定义提示信息{@code msg}以及返回实体{@code T}构建返回结果
      *
      * @param code 自定义状态码
-     * @param msg 自定义提示信息
-     * @param <T> 返回实体的类型
+     * @param msg  自定义提示信息
+     * @param <T>  返回实体的类型
      * @return Result
      */
     public static <T> Result<T> build(Integer code, String msg, T data) {
@@ -93,11 +96,16 @@ public class Result<T> {
      * 出错时调用, 根据返回实体{@code T}构建返回结果
      *
      * @param data 返回实体
-     * @param <T> 返回实体的类型
+     * @param <T>  返回实体的类型
      * @return Result
      */
     public static <T> Result<T> error(T data) {
         return new Result<>(ResultEnum.ERROR.getCode(), ResultEnum.ERROR.getMsg(), data);
+    }
+
+    public static <T> Result<T> error(Integer code, String msg, T data) {
+        log.error("error code{},reasons{},details{}", code, msg, data);
+        return new Result<>(code, msg, data);
     }
 
     private Result(T data) {

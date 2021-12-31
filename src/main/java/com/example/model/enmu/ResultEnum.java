@@ -27,7 +27,11 @@ public enum ResultEnum {
     /**
      * 记录不存在
      */
-    RECORD_NOT_EXIST(503, "record is not exist!");
+    RECORD_NOT_EXIST(503, "record is not exist!"),
+    /**
+     * 空指针异常
+     */
+    NULL_POINTER_EXCEPTION(504, "null pointer exception!");
 
     private final Integer code;
 
