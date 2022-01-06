@@ -33,3 +33,5 @@ logging:
     root: info
   file:
     path: log
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml

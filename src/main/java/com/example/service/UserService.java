@@ -1,5 +1,7 @@
 package com.example.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.model.User;
 
@@ -10,4 +12,5 @@ import com.example.model.User;
  * Date: 2021/12/22 17:47
  */
 public interface UserService extends IService<User> {
+
 }
