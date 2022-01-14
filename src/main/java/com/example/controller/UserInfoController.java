@@ -46,6 +46,8 @@ public class UserInfoController {
         userIPage.getRecords().forEach(System.out::println);
         System.out.print(userIPage);
         System.out.println("第一次提交");
+        System.out.println("第2次提交");
+        System.out.println("第3次提交");
         System.out.println("重制");
         return Result.success(userIPage);
     }
