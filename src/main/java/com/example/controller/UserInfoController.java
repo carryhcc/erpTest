@@ -45,6 +45,7 @@ public class UserInfoController {
         System.out.println("总记录数： "+userIPage.getTotal());
         userIPage.getRecords().forEach(System.out::println);
         System.out.print(userIPage);
+        System.out.println("第一次提交");
         return Result.success(userIPage);
     }
 }
