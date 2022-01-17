@@ -37,8 +37,6 @@ public class DictCache {
             biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
         }
         log.info("BiMap的缓存添加成功");
-        log.error("BiMap的缓存添加成功");
-        log.debug("BiMap的缓存添加成功");
         }
     @PreDestroy
     public void destroy() {

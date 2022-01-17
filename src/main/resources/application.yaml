@@ -26,6 +26,10 @@ others:
   wx:
     appId: wx15ae82b858b1469f
     appKey: a7493d5d0bf5143bbaa61ffc8f3700a1
+  wxReboot:
+    key: 40401cff-9a2a-445e-997d-32943c16059a
+    url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=
+    weather: http://wthrcdn.etouch.cn/weather_mini
 server:
   port: 8081
 logging:
