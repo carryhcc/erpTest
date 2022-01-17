@@ -61,6 +61,8 @@ public class WxRebootServiceImpl implements WxRebootService {
                 "      距离国庆节还有:" + gqDay + "天 \n" +
                 "      祝愿所有打工仔，都能愉快渡过每一天…\n" +
                 "---------------------------------\n" +
+                "---记得订餐---记得订餐---记得订餐---\n" +
+                "---------------------------------\n" +
                 "天气预报\n" + weather(weatherUrl);
         HashMap<String, Object> map = new HashMap<>();
         map.put("msgtype", "text");

@@ -7,6 +7,8 @@ package com.example.service;
  * Date: 2022/1/17 14:12
  */
 public interface WxRebootService {
-
+    /**
+     * 摸鱼⏰
+     */
     void moFish();
 }
