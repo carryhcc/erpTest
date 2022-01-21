@@ -8,6 +8,7 @@ import com.google.common.collect.HashBiMap;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -24,13 +25,12 @@ import java.util.Map;
 @Slf4j
 @Component
 public class DictCache {
-
     public static HashBiMap<String, String> biMap = HashBiMap.create();;
 
 
     @PostConstruct//优先执行
     public static  void init() {
-        ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
+        ExcelReader reader = ExcelUtil.getReader("/home/java/dict.xlsx");
         List<Map<String,Object>> readAll = reader.readAll();
         for (Map<String, Object> stringObjectMap : readAll) {
             JSONObject jsonObject = JSONUtil.parseObj(stringObjectMap);

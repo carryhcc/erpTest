@@ -30,6 +30,9 @@ others:
     key: 40401cff-9a2a-445e-997d-32943c16059a
     url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=
     weather: http://wthrcdn.etouch.cn/weather_mini
+  dict:
+    localUrl: /Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx
+    onlineUrl: /home/java/dict.xlsx
 server:
   port: 8081
 logging:
