@@ -1,6 +1,5 @@
 package com.example.job;
 
-import com.example.controller.WxRebootController;
 import com.example.service.WxRebootService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.scheduling.annotation.Scheduled;

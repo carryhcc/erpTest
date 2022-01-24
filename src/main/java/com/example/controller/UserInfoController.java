@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mapper.UserInfoMapper;
 import com.example.model.Result;
-import com.example.model.User;
 import com.example.service.UserInfoService;
-import com.example.service.UserService;
 import example.model.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
