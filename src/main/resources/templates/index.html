@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>emoji转换</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#jiami").on("click", function () {
+                jiamicode()
+            })
+            $("#jiemi").on("click", function () {
+                jiemicode()
+            })
+        })
+
+        function jiamicode() {
+            $.post(
+                "/dict/encode",
+                {code: $("input[name=codee]").val()},
+                function (data) {
+                    // console.log(result)
+                    $("#result").html(data)
+                })
+        }
+
+        function jiemicode() {
+            $.post(
+                "/dict/decode",
+                {emoji: $("input[name=ccode]").val()},
+                function (data) {
+                    // console.log(result)
+                    $("#result").html(data)
+                })
+        }
+    </script>
+</head>
+<label>
+    加密：
+    <input name="codee" type="text"/>
+    <br>
+    <button id="jiami">加密</button>
+    <br>
+</label>
+<label>
+    解密：
+    <input name="ccode" type="text">
+    <br>
+    <button id="jiemi">解密</button>
+    <br>
+</label>
+<hr>
+<br>
+返回结果：
+<div id="result"></div>
+</html>

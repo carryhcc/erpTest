@@ -30,7 +30,8 @@ public class DictCache {
 
     @PostConstruct//优先执行
     public static  void init() {
-        ExcelReader reader = ExcelUtil.getReader("/home/java/dict.xlsx");
+//        ExcelReader reader = ExcelUtil.getReader("/home/java/dict.xlsx");
+        ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
         List<Map<String,Object>> readAll = reader.readAll();
         for (Map<String, Object> stringObjectMap : readAll) {
             JSONObject jsonObject = JSONUtil.parseObj(stringObjectMap);

@@ -19,6 +19,8 @@ spring:
     database: 7
     port: 6379
     password: Hcc123
+  thymeleaf:
+    cache: false
 others:
   notion:
     reboot: secret_Cy1GDn3CvfPexU9K86YVZwupV3sosqJHekTIGNwbSqX
