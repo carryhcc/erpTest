@@ -44,3 +44,8 @@ logging:
     path: log
 mybatis-plus:
   mapper-locations: classpath:mappers/*.xml
+minio:
+  endpoint: http://47.97.27.187:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: demo
