@@ -6,6 +6,7 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -17,6 +18,7 @@ import java.util.HashMap;
  * @author : cchu
  * Date: 2021/12/1 14:10
  */
+@Slf4j
 public class WxRobotText {
     @Test
     public void upRobot() {
@@ -65,7 +67,7 @@ public class WxRobotText {
 
 //        保存到notion
 //        NotionInstallUtil.addNotion("摸鱼",msg);
-        System.out.println(result);
+        log.info(result);
     }
 
     @Test

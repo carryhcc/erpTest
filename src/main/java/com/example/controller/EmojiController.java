@@ -18,25 +18,30 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @RestController
-@RequestMapping("/dict")
-public class DictController {
+@RequestMapping("/emoji")
+public class EmojiController {
 
     @Resource
     public DictMapper dictMapper;
 
+    /**
+     * 加密
+     * @param code
+     * @return
+     */
     @PostMapping("/encode")
-    public String GuTest(@RequestParam String code) {
-        System.out.println("初始语句：" + code);
+    public String encodeEmoji(@RequestParam String code) {
+        log.info("初始语句：{}",code);
         //字符串转Unicode符
         String s = UnicodeUtil.toUnicode(code, true);
-        System.out.println("中途转换" + s);
+        log.info("中途转换：{}",code);
         StringBuilder emojiOut = new StringBuilder();
         char[] sList = s.toCharArray();
         for (char c : sList) {
 //            System.out.println("加密数据为"+sList[i]);
             emojiOut.append(DictCache.getValue(String.valueOf(c)));
         }
-        System.out.println(emojiOut);
+        log.info("emojiOut：{}",emojiOut);
         return emojiOut.toString();
     }
 
@@ -55,8 +60,13 @@ public class DictController {
         }
     }
 
+    /**
+     * 解密
+     * @param emoji
+     * @return
+     */
     @PostMapping("/decode")
-    String encodeEmoji(@RequestParam String emoji) {
+    String decodeEmoji(@RequestParam String emoji) {
         StringBuilder outPut = new StringBuilder();
         for (int i = 0; i < emoji.length() / 2; i++) {
             outPut.append(DictCache.getValue(emoji.substring(2 * i, (2 * i) + 2)));

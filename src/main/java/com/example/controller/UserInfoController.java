@@ -38,11 +38,10 @@ public class UserInfoController {
         userLambdaQueryWrapper.like(UserInfo::getName , "胡");
         Page<UserInfo> userPage = new Page<>(1 , 10);
         IPage<UserInfo> userIPage = userInfoMapper.selectPage(userPage , userLambdaQueryWrapper);
-        System.out.println("总页数： "+userIPage.getPages());
-        System.out.println("总记录数： "+userIPage.getTotal());
+        log.info("总页数：{}",userIPage.getPages());
+        log.info("总记录数：{}",userIPage.getTotal());
         userIPage.getRecords().forEach(System.out::println);
-        System.out.print(userIPage);
-        System.out.println("第一次提交1");
+        log.info("userIPage:{}",userIPage);
         return Result.success(userIPage);
     }
 }

@@ -40,10 +40,10 @@ public class SqlController {
 //        List<User> users = userMapper.selectList(userLambdaQueryWrapper);
         Page<User> userPage = new Page<>(1 , 10);
         IPage<User> userIPage = userMapper.selectPage(userPage , userLambdaQueryWrapper);
-        System.out.println("总页数： "+userIPage.getPages());
-        System.out.println("总记录数： "+userIPage.getTotal());
+        log.info("总页数:{}",userIPage.getPages());
+        log.info("总记录数:{}",userIPage.getTotal());
         userIPage.getRecords().forEach(System.out::println);
-        System.out.print(userIPage);
+        log.info("userIPage:{}",userIPage);
         return Result.success(userIPage);
     }
     @GetMapping("/update")

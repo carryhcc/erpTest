@@ -49,7 +49,7 @@ public class QrImageController {
 
     @GetMapping("/info")
     public Result testSelect() {
-        System.out.println(("----- selectAll method test ------"));
+        log.info("----- selectAll method test ------");
         List<User> userList = userMapper.selectList(null);
         userList.forEach(System.out::println);
         return Result.success(userList);
@@ -62,14 +62,14 @@ public class QrImageController {
         if (StrUtil.isEmpty(accessToken)) {
             String access_token = postToken(appId, appKey);
             //添加到redis 设置过期时间7200秒
-            System.out.println("存的为" + access_token);
+           log.info("存的为" + access_token);
 //            String msgExpiry = RedisKeyPrefix.ACCESS_TOKEN + access_token;
             stringRedisTemplate.opsForValue().set("accessToken", access_token, 7200, TimeUnit.SECONDS);
         }
 //        获取接口调用凭证access_token
 //        生成二维码
         String tokenQrCode = stringRedisTemplate.opsForValue().get("accessToken");
-        System.out.printf("从redis获取的" + tokenQrCode);
+        log.info("从redis获取的" + tokenQrCode);
 
 //        String tokenQrCode = postToken(appId, appKey);
         String s = generateQrCode("xcxQrImage.png", "pages/purchaseDrug/purchaseDrug", "id=123", tokenQrCode);

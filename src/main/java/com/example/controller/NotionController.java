@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -10,10 +9,10 @@ import com.example.model.User;
 import com.example.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by IntelliJ IDEA.
@@ -51,7 +50,7 @@ public class NotionController {
 //        System.out.println(notion);
 //        ArrayList<String> objects = new ArrayList<>();
         BaseMapper<User> baseMapper = userService.getBaseMapper();
-        System.out.println("错误"+baseMapper);
+        log.info("error:{}",baseMapper);
         return Result.success(notion);
     }
 }
