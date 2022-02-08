@@ -39,5 +39,30 @@
       "name": "minio.bucketName",
       "type": "java.lang.String",
       "description": "Description for minio.bucketName."
+    },
+    {
+      "name": "others.wxReboot.key",
+      "type": "java.lang.String",
+      "description": "Description for others.wxReboot.key."
+    },
+    {
+      "name": "others.wxReboot.url",
+      "type": "java.lang.String",
+      "description": "Description for others.wxReboot.url."
+    },
+    {
+      "name": "others.wxReboot.weather",
+      "type": "java.lang.String",
+      "description": "Description for others.wxReboot.weather."
+    },
+    {
+      "name": "others.dict.localUrl",
+      "type": "java.lang.String",
+      "description": "Description for others.dict.localUrl."
+    },
+    {
+      "name": "others.dict.onlineUrl",
+      "type": "java.lang.String",
+      "description": "Description for others.dict.onlineUrl."
     }
   ] }
