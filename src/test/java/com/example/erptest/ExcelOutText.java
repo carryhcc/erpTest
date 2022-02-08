@@ -2,12 +2,12 @@ package com.example.erptest;
 
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
-import com.example.model.User;
 import com.example.mapper.UserMapper;
+import com.example.model.User;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 @SpringBootTest
 public class ExcelOutText {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Test
