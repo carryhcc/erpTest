@@ -19,5 +19,25 @@
       "name": "others.wx.appKey",
       "type": "java.lang.String",
       "description": "Description for others.wx.appKey."
+    },
+    {
+      "name": "minio.endpoint",
+      "type": "java.lang.String",
+      "description": "Description for minio.endpoint."
+    },
+    {
+      "name": "minio.accessKey",
+      "type": "java.lang.String",
+      "description": "Description for minio.accessKey."
+    },
+    {
+      "name": "minio.secretKey",
+      "type": "java.lang.String",
+      "description": "Description for minio.secretKey."
+    },
+    {
+      "name": "minio.bucketName",
+      "type": "java.lang.String",
+      "description": "Description for minio.bucketName."
     }
   ] }
