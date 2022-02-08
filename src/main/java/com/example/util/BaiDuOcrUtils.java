@@ -11,7 +11,6 @@ package com.example.util;
 
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -5,7 +5,6 @@ import com.example.util.MinioService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +30,12 @@ public class MinioController {
     @Value("${minio.bucketName}")
     private String bucketName;
 
-    @Autowired
+    final
     MinioService minioService;
+
+    public MinioController(MinioService minioService) {
+        this.minioService = minioService;
+    }
 
     /**
      * 列表

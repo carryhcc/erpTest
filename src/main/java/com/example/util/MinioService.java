@@ -5,7 +5,6 @@ import io.minio.*;
 import io.minio.http.Method;
 import io.minio.messages.Item;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -22,12 +21,20 @@ import java.util.concurrent.TimeUnit;
 @Service
 @Slf4j
 public class MinioService {
-    @Autowired
+    final
     MinioConfig minioConfig;
-    @Autowired
+    final
     MinioClient minioClient;
 
-    //获取列表
+    public MinioService(MinioConfig minioConfig,
+                        MinioClient minioClient) {
+        this.minioConfig = minioConfig;
+        this.minioClient = minioClient;
+    }
+
+    /**
+     * 获取列表
+     */
     public List<String> listObjects() {
         List<String> list=new ArrayList<>();
         try {
@@ -48,7 +55,9 @@ public class MinioService {
         return list;
     }
 
-    //删除
+    /**
+     * 删除
+     */
     public void deleteObject(String objectName) {
         try {
             RemoveObjectArgs removeObjectArgs = RemoveObjectArgs.builder()
@@ -61,7 +70,9 @@ public class MinioService {
         }
     }
 
-    //上传
+    /**
+     * 上传
+     */
     public void uploadObject(InputStream is,String fileName,String contentType) {
         try {
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
@@ -77,7 +88,9 @@ public class MinioService {
         }
     }
 
-    //获取minio中地址
+    /**
+     * 获取minio中地址
+     */
     public String getObjectUrl(String objectName){
         try {
             GetPresignedObjectUrlArgs getPresignedObjectUrlArgs = GetPresignedObjectUrlArgs.builder()
@@ -96,7 +109,9 @@ public class MinioService {
 
 
 
-    //下载minio服务的文件
+    /**
+     * 下载minio服务的文件
+     */
     public InputStream getObject(String objectName){
         try {
             GetObjectArgs getObjectArgs = GetObjectArgs.builder()

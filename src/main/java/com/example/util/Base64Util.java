@@ -2,12 +2,9 @@ package com.example.util;
 
 /**
  * Created by IntelliJ IDEA.
- *
+ * Base64 工具类
  * @author : cchu
  * Date: 2021/11/18 04:04
- */
-/**
- * Base64 工具类
  */
 public class Base64Util {
     private static final char last2byte = (char) Integer.parseInt("00000011", 2);
