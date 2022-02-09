@@ -1,0 +1,52 @@
+server:
+  port: 8081
+logging:
+  level:
+    root: info
+  file:
+    path: log
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+spring:
+  datasource:
+    dynamic:
+      primary: mysql
+      strict: false
+      datasource:
+        mysql:
+          url: jdbc:mysql://127.0.0.1:3306/xxxx?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+          username: root
+          password: root
+          hikari:
+            connection-init-sql: set names utf8mb4
+        oracle:
+          url: jdbc:oracle:thin:@127.0.0.1:1521:XE
+          username: root
+          password: root
+  redis:
+    host: 127.0.0.1
+    database: 7
+    port: 6379
+    password:
+  thymeleaf:
+    cache: false
+others:
+  notion:
+    reboot: xxxxxxxxxxxxx
+    pereId: xxxxxxxxxxxxx
+  wx:
+    appId: xxxxxxxxxxxxx
+    appKey: xxxxxxxxxxxxx
+  wxReboot:
+    key: xxxxxxxxxxxxx
+    url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=
+    weather: http://wthrcdn.etouch.cn/weather_mini
+  dict:
+    localUrl: /Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx
+    onlineUrl: /home/java/dict.xlsx
+minio:
+  endpoint: http://127.0.0.1:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: demo
+
