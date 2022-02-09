@@ -7,6 +7,18 @@
 emoji转换地址 
 `127.0.0.1:8081/index`
 
+###功能:
+emoji转换
+
+minio上传下载测试
+
+Notion块添加内容测试
+
+微信生成二维码
+
+企业微信机器人推送
+
+~~随机生成装备~~
 ### 感谢:
 
 <a href="https://gitmoji.dev">
@@ -20,3 +32,6 @@ emoji转换地址
 
 ### License
 The code is available under the MIT license.
+
+<!-- Add the footer here -->
+![Footer](https://baomidou.com/img/logo.svg)
