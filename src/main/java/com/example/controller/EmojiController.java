@@ -1,14 +1,23 @@
 package com.example.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
+import com.example.mapper.DictMapper;
+import com.example.mapper.EmojiMsgMapper;
 import com.example.model.Dict;
 import com.example.model.DictCache;
-import com.example.mapper.DictMapper;
+import com.example.model.EmojiMsg;
 import com.example.util.UnicodeUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,6 +32,8 @@ public class EmojiController {
 
     @Resource
     public DictMapper dictMapper;
+    @Resource
+    public EmojiMsgMapper emojiMsgMapper;
 
     /**
      * 加密
@@ -31,8 +42,15 @@ public class EmojiController {
      * @return
      */
     @PostMapping("/encode")
-    public String encodeEmoji(@RequestParam String code) {
+    public String encodeEmoji(@RequestParam String code) throws UnknownHostException {
         log.info("初始语句：{}", code);
+//        存储语句到数据库
+        EmojiMsg emojiMsg = new EmojiMsg();
+        emojiMsg.setId(IdWorker.getId());
+        emojiMsg.setMsg(code);
+        emojiMsg.setIp(InetAddress.getLocalHost().getHostAddress());
+        emojiMsg.setCreateAt(new Date());
+        emojiMsgMapper.insert(emojiMsg);
         //字符串转Unicode符
         String s = UnicodeUtil.toUnicode(code, true);
         log.info("中途转换：{}", code);

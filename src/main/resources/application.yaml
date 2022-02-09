@@ -5,7 +5,7 @@ spring:
       strict: false
       datasource:
         mysql:
-          url: jdbc:mysql://hcc19970824.mysql.rds.aliyuncs.com:3306/rrsp?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+          url: jdbc:mysql://hcc19970824.mysql.rds.aliyuncs.com:3306/rrsp?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
           username: root
           password: Hcc19970824
           hikari:
