@@ -1,13 +1,16 @@
 # erpTest
+
 写的一些小玩具
 
 #### 启动
+
 `java -jar`
 
-emoji转换地址 
+emoji转换地址
 `127.0.0.1:8081/index`
 
-###功能:
+### 功能:
+
 emoji转换
 
 minio上传下载测试
@@ -19,6 +22,7 @@ Notion块添加内容测试
 企业微信机器人推送
 
 ~~随机生成装备~~
+
 ### 感谢:
 
 <a href="https://gitmoji.dev">
@@ -31,6 +35,7 @@ Notion块添加内容测试
 </a>
 
 ### License
+
 The code is available under the MIT license.
 
 <!-- Add the footer here -->

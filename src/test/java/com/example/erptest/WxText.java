@@ -3,20 +3,15 @@ package com.example.erptest;
 import cn.hutool.http.Header;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
-
 import com.alibaba.fastjson.JSONObject;
 import com.example.util.Base64Util;
 import com.example.util.FileUtil;
-import org.bouncycastle.util.encoders.Base64Encoder;
 import org.junit.jupiter.api.Test;
 
-
-import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,7 +22,7 @@ import java.util.Map;
 public class WxText {
 
     @Test
-    public void login(){
+    public void login() {
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + "wx21ed1e23ee0fdc46" + "&secret=" + "e8ea94c4373281399ac4af1525a673fd" + "&js_code=" + "001nSf000OQwNM1LMi200u5m3G0nSf0p" + "&grant_type=authorization_code";
         String result = HttpUtil.createGet(url).execute().charset("utf-8").body();
         System.out.println(result);
@@ -37,8 +32,9 @@ public class WxText {
         map.put("session_key", ((JSONObject) JSONObject.parse(result)).get("session_key"));
         System.out.println(map.toString());
     }
+
     @Test
-    public void token(){
+    public void token() {
         String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + "wx21ed1e23ee0fdc46" + "&secret=" + "e8ea94c4373281399ac4af1525a673fd";
         String result = HttpUtil.createGet(url).
                 execute().charset("utf-8").body();
@@ -46,9 +42,10 @@ public class WxText {
         String access_token = jsonObject.getString("access_token");
         System.out.println(access_token);
     }
+
     @Test
-    public void url(){
-        String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token="+
+    public void url() {
+        String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" +
                 "51_Rjoi7bqm4KZEto4U6NB_LyZsVPGV72_JkdLAgrgK7wbyE5RfV22etB5oO_MODOdz-ExosO_YPAmT1BipBF0r5cdXNQv3WFSiXh1ag2B1jdaiG_uDtnl9LufwBUBuw396kjJwOPnsWMObXOHTETMjACAJYR";
 //        paramsMap.put("page", "pages/purchaseDrug/purchaseDrug");
         JSONObject paramJson = new JSONObject();
@@ -58,9 +55,9 @@ public class WxText {
         paramJson.put("page", "");
         paramJson.put("width", "200");
         paramJson.put("auto_color", false);
-        byte[] bytes = HttpRequest.post(url).header(Header.CONTENT_TYPE,"application/json") .body(paramJson.toString()).execute().bodyBytes();
+        byte[] bytes = HttpRequest.post(url).header(Header.CONTENT_TYPE, "application/json").body(paramJson.toString()).execute().bodyBytes();
         String s = Base64.getEncoder().encodeToString(bytes);
-        s="data:image/png;base64,"+s;
+        s = "data:image/png;base64," + s;
         System.out.println(s);
     }
 //    @Test
@@ -74,7 +71,7 @@ public class WxText {
 
 
     @Test
-    public void test(){
+    public void test() {
         String authHost = "https://aip.baidubce.com/oauth/2.0/token?";
         String getAccessTokenUrl = authHost
                 // 1. grant_type为固定参数
@@ -91,7 +88,7 @@ public class WxText {
             JSONObject jsonObject = JSONObject.parseObject(result);
             System.out.println(jsonObject.getString("access_token"));
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.err.print("获取token失败！");
             e.printStackTrace(System.err);
         }
@@ -99,7 +96,7 @@ public class WxText {
 
     @Test
 
-    public void test1(){
+    public void test1() {
         String url = "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard";
         String token = "24.d4cbb580649c29c7c63b7adfd49520ae.2592000.1639782479.282335-24657052";
         try {
@@ -120,14 +117,14 @@ public class WxText {
             //String accessToken = "[调用鉴权接口获取的token]";
 
             //String result = com.example.util.HttpUtil.post(url, token, param);
-           // System.out.println(result);
+            // System.out.println(result);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    }
+}
 
 
 

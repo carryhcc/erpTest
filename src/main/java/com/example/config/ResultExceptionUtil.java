@@ -4,13 +4,13 @@ import com.example.model.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Objects;
 
-import static com.example.model.enmu.ResultEnum.*;
+import static com.example.model.enmu.ResultEnum.NULL_POINTER_EXCEPTION;
+import static com.example.model.enmu.ResultEnum.PARAM_ERROR;
 
 
 /**

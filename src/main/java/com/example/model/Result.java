@@ -29,6 +29,34 @@ public class Result<T> {
      */
     private T data;
 
+    private Result(T data) {
+        this.code = ResultEnum.SUCCESS.getCode();
+        this.msg = ResultEnum.SUCCESS.getMsg();
+        this.data = data;
+    }
+
+    private Result(String msg) {
+        this.code = ResultEnum.ERROR.getCode();
+        this.data = null;
+        this.msg = msg;
+    }
+
+    private Result(ResultEnum resultEnum) {
+        this.code = resultEnum.getCode();
+        this.msg = resultEnum.getMsg();
+    }
+
+    private Result(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    private Result(Integer code, String msg, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
+
     /**
      * 成功时调用, 没有data内容
      *
@@ -106,33 +134,5 @@ public class Result<T> {
     public static <T> Result<T> error(Integer code, String msg, T data) {
         log.error("error code{},reasons{},details{}", code, msg, data);
         return new Result<>(code, msg, data);
-    }
-
-    private Result(T data) {
-        this.code = ResultEnum.SUCCESS.getCode();
-        this.msg = ResultEnum.SUCCESS.getMsg();
-        this.data = data;
-    }
-
-    private Result(String msg) {
-        this.code = ResultEnum.ERROR.getCode();
-        this.data = null;
-        this.msg = msg;
-    }
-
-    private Result(ResultEnum resultEnum) {
-        this.code = resultEnum.getCode();
-        this.msg = resultEnum.getMsg();
-    }
-
-    private Result(Integer code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-
-    private Result(Integer code, String msg, T data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
     }
 }

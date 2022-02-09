@@ -8,6 +8,7 @@ import java.util.Collections;
 
 /**
  * 代码自动生成器
+ *
  * @author zpc
  * @version 1.0
  * @date 2021/11/7 13:59
@@ -34,7 +35,7 @@ public class AutoGenerator {
                             .controller("controller")
                             .mapper("mapper")
 //                            .xml("mapper")
-                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, System.getProperty("user.dir")+"/src/main/resources/mapper")); // 设置mapperXml生成路径
+                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, System.getProperty("user.dir") + "/src/main/resources/mapper")); // 设置mapperXml生成路径
                 })
                 // 策略配置
                 .strategyConfig(builder -> {

@@ -1,7 +1,7 @@
 package com.example.mapper;
 
-import com.example.model.SyncMsg;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.model.SyncMsg;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

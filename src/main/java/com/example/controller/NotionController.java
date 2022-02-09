@@ -45,12 +45,13 @@ public class NotionController {
 //        System.out.print(JSONUtil.parseObj(result).toStringPretty());
         return JSONUtil.parseObj(result).toStringPretty();
     }
+
     @PostMapping("/test")
-    public Result test(@RequestBody  Notion notion) {
+    public Result test(@RequestBody Notion notion) {
 //        System.out.println(notion);
 //        ArrayList<String> objects = new ArrayList<>();
         BaseMapper<User> baseMapper = userService.getBaseMapper();
-        log.info("error:{}",baseMapper);
+        log.info("error:{}", baseMapper);
         return Result.success(notion);
     }
 }

@@ -6,7 +6,10 @@ import cn.hutool.poi.excel.ExcelUtil;
 import com.example.model.TestUser;
 import org.junit.jupiter.api.Test;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.List;
 

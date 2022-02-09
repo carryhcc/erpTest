@@ -21,6 +21,26 @@ import java.util.HashMap;
 @Slf4j
 public class WxRobotText {
     @Test
+    public static String weather() {
+//        http://wthrcdn.etouch.cn/weather_mini?city=
+        HashMap<String, Object> paramMap = new HashMap<>();
+        paramMap.put("city", "武汉");
+        String url = "http://wthrcdn.etouch.cn/weather_mini";
+        String result = HttpUtil.get(url, paramMap);
+
+        JSONObject data = JSONUtil.parseObj(JSONUtil.parseObj(result).getStr("data"));
+        String yesterday = data.getStr("yesterday");
+        JSONObject day = JSONUtil.parseObj(yesterday);
+        String msg = "您所在的城市为" + data.getStr("city") + "\n今天是:" + DateUtil.today() +
+//                " 风力:" + day.getStr("fl") +
+                " \n天气:" + day.getStr("type") +
+                " \n温度：" + day.getStr("high") + day.getStr("low") +
+                " \n风向：" + day.getStr("fx") +
+                " \n温馨提醒：" + data.getStr("ganmao");
+        return msg;
+    }
+
+    @Test
     public void upRobot() {
         String url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=";
         String key = "40401cff-9a2a-445e-997d-32943c16059a";
@@ -68,26 +88,6 @@ public class WxRobotText {
 //        保存到notion
 //        NotionInstallUtil.addNotion("摸鱼",msg);
         log.info(result);
-    }
-
-    @Test
-    public static String weather() {
-//        http://wthrcdn.etouch.cn/weather_mini?city=
-        HashMap<String, Object> paramMap = new HashMap<>();
-        paramMap.put("city", "武汉");
-        String url = "http://wthrcdn.etouch.cn/weather_mini";
-        String result = HttpUtil.get(url, paramMap);
-
-        JSONObject data = JSONUtil.parseObj(JSONUtil.parseObj(result).getStr("data"));
-        String yesterday = data.getStr("yesterday");
-        JSONObject day = JSONUtil.parseObj(yesterday);
-        String msg = "您所在的城市为" + data.getStr("city") + "\n今天是:" + DateUtil.today() +
-//                " 风力:" + day.getStr("fl") +
-                " \n天气:" + day.getStr("type") +
-                " \n温度：" + day.getStr("high") + day.getStr("low") +
-                " \n风向：" + day.getStr("fx") +
-                " \n温馨提醒：" + data.getStr("ganmao");
-        return msg;
     }
 
 }

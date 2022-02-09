@@ -3,90 +3,76 @@ package com.example.model;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * 
  * @TableName USER_CONFIG
  */
-@TableName(value ="USER_CONFIG")
+@TableName(value = "USER_CONFIG")
 @Data
 public class UserConfig implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
-     * 
+     *
      */
     @TableId
     private Long id;
-
     /**
      * 用户ID
      */
     private Long userId;
-
     /**
      * 权限()
      */
     private String role;
-
     /**
      * 是否启用0:代表false、1:代表true
      */
     private Integer isenabled;
-
     /**
      * 添加时间
      */
     private Date createAt;
-
     /**
      * 更新时间
      */
     private Date updateAt;
-
     /**
      * 会员等级
      */
     private String userLevel;
-
     /**
      * 备注
      */
     private String desc;
-
     /**
      * IP地址
      */
     private String ip;
-
     /**
      * MAC地址
      */
     private String mac;
-
     /**
      * 付款方式
      */
     private String payType;
-
     /**
      * 信用卡类型
      */
     private String creditCardsType;
-
     /**
      * 信用卡卡号
      */
     private String creditCardsNumber;
-
     /**
      * 信用卡日期
      */
     private String creditCardsDate;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -101,19 +87,19 @@ public class UserConfig implements Serializable {
         }
         UserConfig other = (UserConfig) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getRole() == null ? other.getRole() == null : this.getRole().equals(other.getRole()))
-            && (this.getIsenabled() == null ? other.getIsenabled() == null : this.getIsenabled().equals(other.getIsenabled()))
-            && (this.getCreateAt() == null ? other.getCreateAt() == null : this.getCreateAt().equals(other.getCreateAt()))
-            && (this.getUpdateAt() == null ? other.getUpdateAt() == null : this.getUpdateAt().equals(other.getUpdateAt()))
-            && (this.getUserLevel() == null ? other.getUserLevel() == null : this.getUserLevel().equals(other.getUserLevel()))
-            && (this.getDesc() == null ? other.getDesc() == null : this.getDesc().equals(other.getDesc()))
-            && (this.getIp() == null ? other.getIp() == null : this.getIp().equals(other.getIp()))
-            && (this.getMac() == null ? other.getMac() == null : this.getMac().equals(other.getMac()))
-            && (this.getPayType() == null ? other.getPayType() == null : this.getPayType().equals(other.getPayType()))
-            && (this.getCreditCardsType() == null ? other.getCreditCardsType() == null : this.getCreditCardsType().equals(other.getCreditCardsType()))
-            && (this.getCreditCardsNumber() == null ? other.getCreditCardsNumber() == null : this.getCreditCardsNumber().equals(other.getCreditCardsNumber()))
-            && (this.getCreditCardsDate() == null ? other.getCreditCardsDate() == null : this.getCreditCardsDate().equals(other.getCreditCardsDate()));
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+                && (this.getRole() == null ? other.getRole() == null : this.getRole().equals(other.getRole()))
+                && (this.getIsenabled() == null ? other.getIsenabled() == null : this.getIsenabled().equals(other.getIsenabled()))
+                && (this.getCreateAt() == null ? other.getCreateAt() == null : this.getCreateAt().equals(other.getCreateAt()))
+                && (this.getUpdateAt() == null ? other.getUpdateAt() == null : this.getUpdateAt().equals(other.getUpdateAt()))
+                && (this.getUserLevel() == null ? other.getUserLevel() == null : this.getUserLevel().equals(other.getUserLevel()))
+                && (this.getDesc() == null ? other.getDesc() == null : this.getDesc().equals(other.getDesc()))
+                && (this.getIp() == null ? other.getIp() == null : this.getIp().equals(other.getIp()))
+                && (this.getMac() == null ? other.getMac() == null : this.getMac().equals(other.getMac()))
+                && (this.getPayType() == null ? other.getPayType() == null : this.getPayType().equals(other.getPayType()))
+                && (this.getCreditCardsType() == null ? other.getCreditCardsType() == null : this.getCreditCardsType().equals(other.getCreditCardsType()))
+                && (this.getCreditCardsNumber() == null ? other.getCreditCardsNumber() == null : this.getCreditCardsNumber().equals(other.getCreditCardsNumber()))
+                && (this.getCreditCardsDate() == null ? other.getCreditCardsDate() == null : this.getCreditCardsDate().equals(other.getCreditCardsDate()));
     }
 
     @Override

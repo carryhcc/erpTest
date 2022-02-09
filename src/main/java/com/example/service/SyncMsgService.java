@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.model.SyncMsg;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.model.SyncMsg;
 
 /**
  * <p>

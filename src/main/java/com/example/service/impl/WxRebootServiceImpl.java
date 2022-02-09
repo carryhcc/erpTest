@@ -31,6 +31,24 @@ public class WxRebootServiceImpl implements WxRebootService {
     @Value("${others.wxReboot.weather}")
     private String weatherUrl;
 
+    public static String weather(String url) {
+//        http://wthrcdn.etouch.cn/weather_mini?city=
+        HashMap<String, Object> paramMap = new HashMap<>();
+        paramMap.put("city", "武汉");
+//        String url = "http://wthrcdn.etouch.cn/weather_mini";
+        String result = HttpUtil.get(url, paramMap);
+
+        JSONObject data = JSONUtil.parseObj(JSONUtil.parseObj(result).getStr("data"));
+        String yesterday = data.getStr("yesterday");
+        JSONObject day = JSONUtil.parseObj(yesterday);
+        return "您所在的城市为" + data.getStr("city") + "\n今天是:" + DateUtil.today() +
+//                " 风力:" + day.getStr("fl") +
+                " \n天气:" + day.getStr("type") +
+                " \n温度：" + day.getStr("high") + day.getStr("low") +
+                " \n风向：" + day.getStr("fx") +
+                " \n温馨提醒：" + data.getStr("ganmao");
+    }
+
     @Override
     public void moFish() {
         //内容
@@ -79,23 +97,5 @@ public class WxRebootServiceImpl implements WxRebootService {
 //        保存到notion
 //        NotionInstallUtil.addNotion("摸鱼",msg);
         System.out.println(result);
-    }
-
-    public static String weather(String url) {
-//        http://wthrcdn.etouch.cn/weather_mini?city=
-        HashMap<String, Object> paramMap = new HashMap<>();
-        paramMap.put("city", "武汉");
-//        String url = "http://wthrcdn.etouch.cn/weather_mini";
-        String result = HttpUtil.get(url, paramMap);
-
-        JSONObject data = JSONUtil.parseObj(JSONUtil.parseObj(result).getStr("data"));
-        String yesterday = data.getStr("yesterday");
-        JSONObject day = JSONUtil.parseObj(yesterday);
-        return "您所在的城市为" + data.getStr("city") + "\n今天是:" + DateUtil.today() +
-//                " 风力:" + day.getStr("fl") +
-                " \n天气:" + day.getStr("type") +
-                " \n温度：" + day.getStr("high") + day.getStr("low") +
-                " \n风向：" + day.getStr("fx") +
-                " \n温馨提醒：" + data.getStr("ganmao");
     }
 }

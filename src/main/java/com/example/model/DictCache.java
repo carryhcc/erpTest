@@ -22,23 +22,20 @@ import java.util.Map;
 @Slf4j
 @Component
 public class DictCache {
-    public static HashBiMap<String, String> biMap = HashBiMap.create();;
+    public static HashBiMap<String, String> biMap = HashBiMap.create();
+    ;
 
-//🐶 🐟
+    //🐶 🐟
     @PostConstruct//优先执行
-    public static  void init() {
+    public static void init() {
 //        ExcelReader reader = ExcelUtil.getReader("/home/java/dict.xlsx");
         ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
-        List<Map<String,Object>> readAll = reader.readAll();
+        List<Map<String, Object>> readAll = reader.readAll();
         for (Map<String, Object> stringObjectMap : readAll) {
             JSONObject jsonObject = JSONUtil.parseObj(stringObjectMap);
             biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
         }
         log.info("BiMap的缓存添加成功");
-        }
-    @PreDestroy
-    public void destroy() {
-        //系统运行结束
     }
 
     public static String getValue(String code) {
@@ -48,6 +45,11 @@ public class DictCache {
             //通过value值得到key值
             return biMap.inverse().get(code);
         }
+    }
+
+    @PreDestroy
+    public void destroy() {
+        //系统运行结束
     }
 
     /**

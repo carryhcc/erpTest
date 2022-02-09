@@ -38,16 +38,17 @@ public class SqlController {
     @DS("oracle")
     public Result select() {
         LambdaQueryWrapper<User> userLambdaQueryWrapper = Wrappers.lambdaQuery();
-        userLambdaQueryWrapper.like(User::getName , "胡");
+        userLambdaQueryWrapper.like(User::getName, "胡");
 //        List<User> users = userMapper.selectList(userLambdaQueryWrapper);
-        Page<User> userPage = new Page<>(1 , 10);
-        IPage<User> userIPage = userMapper.selectPage(userPage , userLambdaQueryWrapper);
-        log.info("总页数:{}",userIPage.getPages());
-        log.info("总记录数:{}",userIPage.getTotal());
+        Page<User> userPage = new Page<>(1, 10);
+        IPage<User> userIPage = userMapper.selectPage(userPage, userLambdaQueryWrapper);
+        log.info("总页数:{}", userIPage.getPages());
+        log.info("总记录数:{}", userIPage.getTotal());
         userIPage.getRecords().forEach(System.out::println);
-        log.info("userIPage:{}",userIPage);
+        log.info("userIPage:{}", userIPage);
         return Result.success(userIPage);
     }
+
     @GetMapping("/update")
     @DS("oracle")
     public Result update() {

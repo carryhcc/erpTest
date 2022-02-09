@@ -25,13 +25,12 @@ import java.io.InputStream;
 @RequestMapping("/minio")
 public class MinioController {
 
+    final
+    MinioService minioService;
     @Value("${minio.endpoint}")
     private String endpoint;
     @Value("${minio.bucketName}")
     private String bucketName;
-
-    final
-    MinioService minioService;
 
     public MinioController(MinioService minioService) {
         this.minioService = minioService;
@@ -39,6 +38,7 @@ public class MinioController {
 
     /**
      * 列表
+     *
      * @param model
      * @return
      */
@@ -50,17 +50,19 @@ public class MinioController {
 
     /**
      * 删除
+     *
      * @param filename
      * @return
      */
     @GetMapping("/delete")
-    public Result delete(@RequestParam String  filename) {
+    public Result delete(@RequestParam String filename) {
         minioService.deleteObject(filename);
         return Result.success(filename + "删除成功");
     }
 
     /**
      * 上传文件
+     *
      * @param file
      * @return
      * @throws IOException
@@ -80,6 +82,7 @@ public class MinioController {
 
     /**
      * 下载minio服务的文件
+     *
      * @param filename
      * @param response
      */
@@ -98,6 +101,7 @@ public class MinioController {
 
     /**
      * 获取minio文件的下载地址
+     *
      * @param filename
      * @return
      */

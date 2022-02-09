@@ -1,9 +1,9 @@
 package com.example.service.impl;
 
-import com.example.model.SyncMsg;
-import com.example.mapper.SyncMsgMapper;
-import com.example.service.SyncMsgService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.mapper.SyncMsgMapper;
+import com.example.model.SyncMsg;
+import com.example.service.SyncMsgService;
 import org.springframework.stereotype.Service;
 
 /**

@@ -31,17 +31,18 @@ public class UserInfoController {
     public UserInfoService userInfoService;
     @Resource
     public UserInfoMapper userInfoMapper;
+
     @GetMapping("/select")
     @DS("oracle")
     public Result userInfo() {
         LambdaQueryWrapper<UserInfo> userLambdaQueryWrapper = Wrappers.lambdaQuery();
-        userLambdaQueryWrapper.like(UserInfo::getName , "胡");
-        Page<UserInfo> userPage = new Page<>(1 , 10);
-        IPage<UserInfo> userIPage = userInfoMapper.selectPage(userPage , userLambdaQueryWrapper);
-        log.info("总页数：{}",userIPage.getPages());
-        log.info("总记录数：{}",userIPage.getTotal());
+        userLambdaQueryWrapper.like(UserInfo::getName, "胡");
+        Page<UserInfo> userPage = new Page<>(1, 10);
+        IPage<UserInfo> userIPage = userInfoMapper.selectPage(userPage, userLambdaQueryWrapper);
+        log.info("总页数：{}", userIPage.getPages());
+        log.info("总记录数：{}", userIPage.getTotal());
         userIPage.getRecords().forEach(System.out::println);
-        log.info("userIPage:{}",userIPage);
+        log.info("userIPage:{}", userIPage);
         return Result.success(userIPage);
     }
 }

@@ -35,10 +35,11 @@ public class AutoGeneratorNew {
                  */
                 .execute();
     }
+
     /**
      * 处理 all 情况
      */
-        protected static List<String> getTables (String tables){
-            return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
-        }
+    protected static List<String> getTables(String tables) {
+        return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
     }
+}

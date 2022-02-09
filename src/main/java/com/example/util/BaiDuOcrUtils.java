@@ -1,7 +1,6 @@
 package com.example.util;
 
 
-
 /**
  * Created by IntelliJ IDEA.
  *
@@ -12,6 +11,7 @@ package com.example.util;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -23,16 +23,19 @@ import java.util.Map;
 
 /**
  * 百度OCR识别工具类
+ *
  * @author cchu
  */
 @Component
 public class BaiDuOcrUtils {
-    public static String API_KEY="24657052";
-    public static String SECRET_KEY="RNB8jiOApDiH8lvKA7ddcvEg";
-    public static String TOKEN="https://aip.baidubce.com/oauth/2.0/token";
-    public static String OCR="https://aip.baidubce.com/rest/2.0/ocr/v1/idcard";
+    public static String API_KEY = "24657052";
+    public static String SECRET_KEY = "RNB8jiOApDiH8lvKA7ddcvEg";
+    public static String TOKEN = "https://aip.baidubce.com/oauth/2.0/token";
+    public static String OCR = "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard";
+
     /**
      * 获取权限token
+     *
      * @return 返回示例：
      * {
      * "access_token": "24.460da4889caad24cccdb1fea17221975.2592000.1491995545.282335-1234567",
@@ -50,6 +53,7 @@ public class BaiDuOcrUtils {
     /**
      * 获取API访问token
      * 该token有一定的有效期，需要自行管理，当失效时需重新获取.
+     *
      * @param ak - 百度云官网获取的 API Key
      * @param sk - 百度云官网获取的 Securet Key
      * @return assess_token 示例：
@@ -70,7 +74,7 @@ public class BaiDuOcrUtils {
             // 打开和URL之间的连接
             HttpURLConnection connection = (HttpURLConnection) realUrl.openConnection();
             System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
-            connection.setRequestProperty("host","aip.baidubce.com");
+            connection.setRequestProperty("host", "aip.baidubce.com");
             connection.setRequestMethod("GET");
             connection.connect();
             // 获取所有响应头字段
@@ -99,6 +103,7 @@ public class BaiDuOcrUtils {
         }
         return null;
     }
+
     /**
      * 身份证识别
      */
@@ -113,7 +118,7 @@ public class BaiDuOcrUtils {
          * https://ai.baidu.com/file/470B3ACCA3FE43788B5A963BF0B625F3
          * 下载
          */
-        public static String idCard(String token,String filePath) {
+        public static String idCard(String token, String filePath) {
             // 请求url
             String url = OCR + "?access_token=" + token;
             try {

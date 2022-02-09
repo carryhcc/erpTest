@@ -5,19 +5,20 @@
 <mapper namespace="example.mapper.UserInfoMapper">
 
     <resultMap id="BaseResultMap" type="example.model.UserInfo">
-            <id property="id" column="ID" jdbcType="DECIMAL"/>
-            <result property="name" column="NAME" jdbcType="VARCHAR"/>
-            <result property="age" column="AGE" jdbcType="DECIMAL"/>
-            <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
-            <result property="address" column="ADDRESS" jdbcType="VARCHAR"/>
-            <result property="createAt" column="CREATE_AT" jdbcType="TIMESTAMP"/>
-            <result property="updateAt" column="UPDATE_AT" jdbcType="TIMESTAMP"/>
-            <result property="city" column="CITY" jdbcType="VARCHAR"/>
-            <result property="phone" column="PHONE" jdbcType="VARCHAR"/>
+        <id property="id" column="ID" jdbcType="DECIMAL"/>
+        <result property="name" column="NAME" jdbcType="VARCHAR"/>
+        <result property="age" column="AGE" jdbcType="DECIMAL"/>
+        <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+        <result property="address" column="ADDRESS" jdbcType="VARCHAR"/>
+        <result property="createAt" column="CREATE_AT" jdbcType="TIMESTAMP"/>
+        <result property="updateAt" column="UPDATE_AT" jdbcType="TIMESTAMP"/>
+        <result property="city" column="CITY" jdbcType="VARCHAR"/>
+        <result property="phone" column="PHONE" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        ID,NAME,AGE,
+        ID
+        ,NAME,AGE,
         EMAIL,ADDRESS,CREATE_AT,
         UPDATE_AT,CITY,PHONE
     </sql>

@@ -30,18 +30,18 @@ public class MultipartFileToFileUtil {
         String fileName = multipartFile.getOriginalFilename();
         File file = new File(multipartFile.getName());
         OutputStream out = null;
-        try{
+        try {
             //获取文件流，以文件流的方式输出到新文件
             //putStream in = multipartFile.getInputStream();
             out = new FileOutputStream(file);
             byte[] ss = multipartFile.getBytes();
-            for(int i = 0; i < ss.length; i++){
+            for (int i = 0; i < ss.length; i++) {
                 out.write(ss[i]);
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if (out != null){
+        } finally {
+            if (out != null) {
                 try {
                     out.close();
                 } catch (IOException e) {
@@ -51,6 +51,7 @@ public class MultipartFileToFileUtil {
         }
         return file;
     }
+
     /**
      * 转换完成后删除生成文件
      *
@@ -64,6 +65,7 @@ public class MultipartFileToFileUtil {
             log.info("缓存文件删除失败");
         }
     }
+
     public static File mTof(MultipartFile multipartFile) {
         File file = new File(Objects.requireNonNull(multipartFile.getOriginalFilename()));
         try {

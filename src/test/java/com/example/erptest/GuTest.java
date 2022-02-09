@@ -1,7 +1,5 @@
 package com.example.erptest;
 
-import cn.hutool.core.text.UnicodeUtil;
-import cn.hutool.core.util.HexUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import org.junit.jupiter.api.Test;
@@ -10,8 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.lang.Long.parseLong;
-
 /**
  * Created by IntelliJ IDEA.
  *
@@ -19,25 +15,6 @@ import static java.lang.Long.parseLong;
  * Date: 2021/12/15 16:26
  */
 public class GuTest {
-    @Test
-    public void GuTest(){
-        String up = "这是测试加密语句";
-        StringBuilder out = new StringBuilder();
-        StringBuilder emojiOut = new StringBuilder();
-        for (int i = 0; i < up.length(); i++) {
-            char c = up.charAt(i);
-            out.append(" ").append(Integer.toHexString(c));
-        }
-        String s = out.toString();
-        String[] split = s.split("");
-        for (String value : split) {
-            emojiOut.append(dict(value));
-        }
-        System.out.println("初始语句："+up);
-//        System.out.println("中途转换"+out);
-        System.out.println(emojiOut);
-    }
-
     /**
      * 字典表
      */
@@ -82,17 +59,38 @@ public class GuTest {
         dictMap.put(" ", "\uD83C\uDF83");
         return dictMap.get(str);
     }
-        @Test
-        public void emoji () throws Exception {
-            System.out.println("\uD83C\uDF48");
-        }
-        @Test
-    public void emojiEnCode () throws Exception {
-            ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
-            List<Map<String,Object>> readAll = reader.readAll();
-            System.out.println(readAll);
-            System.out.println(readAll.get(0));
-        }
 
+    @Test
+    public void GuTest() {
+        String up = "这是测试加密语句";
+        StringBuilder out = new StringBuilder();
+        StringBuilder emojiOut = new StringBuilder();
+        for (int i = 0; i < up.length(); i++) {
+            char c = up.charAt(i);
+            out.append(" ").append(Integer.toHexString(c));
+        }
+        String s = out.toString();
+        String[] split = s.split("");
+        for (String value : split) {
+            emojiOut.append(dict(value));
+        }
+        System.out.println("初始语句：" + up);
+//        System.out.println("中途转换"+out);
+        System.out.println(emojiOut);
     }
+
+    @Test
+    public void emoji() throws Exception {
+        System.out.println("\uD83C\uDF48");
+    }
+
+    @Test
+    public void emojiEnCode() throws Exception {
+        ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
+        List<Map<String, Object>> readAll = reader.readAll();
+        System.out.println(readAll);
+        System.out.println(readAll.get(0));
+    }
+
+}
 

@@ -20,9 +20,9 @@ public class WxRebootController {
     @Resource
     private WxRebootService wxRebootService;
 
-   public  void moFish() {
-       wxRebootService.moFish();
-       log.info("摸🐟提醒执行完毕");
-   }
+    public void moFish() {
+        wxRebootService.moFish();
+        log.info("摸🐟提醒执行完毕");
+    }
 
 }

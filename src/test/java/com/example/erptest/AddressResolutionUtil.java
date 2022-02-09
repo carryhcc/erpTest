@@ -6,10 +6,15 @@ package com.example.erptest;
  * @author : cchu
  * Date: 2021/12/23 14:55
  */
+
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import java.net.*;
-import java.util.*;
+
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

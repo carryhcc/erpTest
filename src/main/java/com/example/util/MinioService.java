@@ -36,21 +36,21 @@ public class MinioService {
      * 获取列表
      */
     public List<String> listObjects() {
-        List<String> list=new ArrayList<>();
+        List<String> list = new ArrayList<>();
         try {
 
             ListObjectsArgs listObjectsArgs = ListObjectsArgs.builder()
                     .bucket(minioConfig.getBucketName())
                     .build();
 
-            Iterable<Result<Item>> results =minioClient.listObjects(listObjectsArgs);
+            Iterable<Result<Item>> results = minioClient.listObjects(listObjectsArgs);
             for (Result<Item> result : results) {
                 Item item = result.get();
                 log.info(item.lastModified() + ", " + item.size() + ", " + item.objectName());
                 list.add(item.objectName());
             }
-        }catch (Exception e){
-            log.error("错误："+e.getMessage());
+        } catch (Exception e) {
+            log.error("错误：" + e.getMessage());
         }
         return list;
     }
@@ -65,15 +65,15 @@ public class MinioService {
                     .object(objectName)
                     .build();
             minioClient.removeObject(removeObjectArgs);
-        }catch (Exception e){
-            log.error("错误："+e.getMessage());
+        } catch (Exception e) {
+            log.error("错误：" + e.getMessage());
         }
     }
 
     /**
      * 上传
      */
-    public void uploadObject(InputStream is,String fileName,String contentType) {
+    public void uploadObject(InputStream is, String fileName, String contentType) {
         try {
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
                     .bucket(minioConfig.getBucketName())
@@ -83,15 +83,15 @@ public class MinioService {
                     .build();
             minioClient.putObject(putObjectArgs);
             is.close();
-        }catch (Exception e){
-            log.error("错误："+e.getMessage());
+        } catch (Exception e) {
+            log.error("错误：" + e.getMessage());
         }
     }
 
     /**
      * 获取minio中地址
      */
-    public String getObjectUrl(String objectName){
+    public String getObjectUrl(String objectName) {
         try {
             GetPresignedObjectUrlArgs getPresignedObjectUrlArgs = GetPresignedObjectUrlArgs.builder()
                     .method(Method.GET)
@@ -100,27 +100,26 @@ public class MinioService {
                     .expiry(7, TimeUnit.DAYS)
                     .build();
             return minioClient.getPresignedObjectUrl(getPresignedObjectUrlArgs);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            log.error("错误："+e.getMessage());
+            log.error("错误：" + e.getMessage());
         }
         return "";
     }
 
 
-
     /**
      * 下载minio服务的文件
      */
-    public InputStream getObject(String objectName){
+    public InputStream getObject(String objectName) {
         try {
             GetObjectArgs getObjectArgs = GetObjectArgs.builder()
                     .bucket(minioConfig.getBucketName())
                     .object(objectName)
                     .build();
             return minioClient.getObject(getObjectArgs);
-        }catch (Exception e){
-            log.error("错误："+e.getMessage());
+        } catch (Exception e) {
+            log.error("错误：" + e.getMessage());
         }
         return null;
     }

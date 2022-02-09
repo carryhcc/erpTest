@@ -18,6 +18,7 @@ public class NotionTest {
     private String reboot;
     @Value("${notion.pereId}")
     private String pereId;
+
     @Test
     void addNotion() {
         String reboot = "secret_Cy1GDn3CvfPexU9K86YVZwupV3sosqJHekTIGNwbSqX";
