@@ -50,8 +50,8 @@ public class SqlController {
     @DS("oracle")
     public Result update() {
         List<User> list = userService.list();
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i).setId(IdWorker.getId());
+        for (User user : list) {
+            user.setId(IdWorker.getId());
         }
         return Result.success();
     }

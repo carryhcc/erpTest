@@ -53,7 +53,7 @@ public class WxRebootServiceImpl implements WxRebootService {
 
         String msg = "  【摸鱼办】提醒您：" + DateUtil.today() + "早上好，摸鱼人！工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的\n" +
 //                "      距离元旦还有:" + ydDay + "天  \n" +
-                "      距离春节还有:" + cjDay + "天 \n" +
+//                "      距离春节还有:" + cjDay + "天 \n" +
                 "      距离清明节还有:" + qmDay + "天 \n" +
                 "      距离劳动节还有:" + ldDay + "天 \n" +
                 "      距离端午节还有:" + dwDay + "天 \n" +
