@@ -7,8 +7,8 @@ import com.baomidou.mybatisplus.generator.config.OutputFile;
 import java.util.Collections;
 
 /**
- * 代码自动生成器
- *
+ * Mybatis-Plus 代码自动生成器
+ * 策略配置地址 https://baomidou.com/pages/981406/#mapper-%E7%AD%96%E7%95%A5%E9%85%8D%E7%BD%AE
  * @author zpc
  * @version 1.0
  * @date 2021/11/7 13:59

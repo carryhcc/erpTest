@@ -16,7 +16,9 @@ import java.util.Date;
 @Slf4j
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
-    // 插入时的填充策略
+    /**
+     * 插入时的填充策略
+     */
     @Override
     public void insertFill(MetaObject metaObject) {
         log.info("start insert fill....");
@@ -25,7 +27,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         this.setFieldValByName("updateTime", new Date(), metaObject);
     }
 
-    // 更新时的填充策略
+    /**
+     * 更新时的填充策略
+     */
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill....");

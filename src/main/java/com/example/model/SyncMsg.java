@@ -11,10 +11,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * <p>
  * 消息中心表
- * </p>
- *
  * @author hcc
  * @since 2022-02-09
  */

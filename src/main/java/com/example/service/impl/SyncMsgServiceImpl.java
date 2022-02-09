@@ -7,10 +7,7 @@ import com.example.service.SyncMsgService;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
  * 消息中心表 服务实现类
- * </p>
- *
  * @author hcc
  * @since 2022-02-09
  */
