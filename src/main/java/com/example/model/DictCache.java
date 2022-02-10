@@ -5,11 +5,12 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import com.google.common.collect.HashBiMap;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Map;
 
@@ -23,10 +24,11 @@ import java.util.Map;
 @Component
 public class DictCache {
     public static HashBiMap<String, String> biMap = HashBiMap.create();
-    ;
 
-    //🐶 🐟
-    @PostConstruct//优先执行
+    /**
+     * 程序启动前 优先执行
+     */
+    @PostConstruct
     public static void init() {
 //        ExcelReader reader = ExcelUtil.getReader("/home/java/dict.xlsx");
         ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
@@ -36,6 +38,8 @@ public class DictCache {
             biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
         }
         log.info("BiMap的缓存添加成功");
+        //关闭流
+        reader.close();
     }
 
     public static String getValue(String code) {
@@ -55,6 +59,6 @@ public class DictCache {
     /**
      * //每2小时执行一次缓存
      */
-//    @Scheduled(cron = "0 0 0/2 * * ?")
-//      public void testOne() {init();}
+    @Scheduled(cron = "0 0 0/2 * * ?")
+      public void cache() {init();}
 }

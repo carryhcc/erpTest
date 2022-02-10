@@ -1,7 +1,8 @@
 package com.example.service;
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
-import example.model.UserInfo;
+import com.example.model.UserInfo;
 
 /**
  * @author cchu

@@ -1,7 +1,8 @@
 package com.example.mapper;
 
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import example.model.UserInfo;
+import com.example.model.UserInfo;
 
 /**
  * @author cchu

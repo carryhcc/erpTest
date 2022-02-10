@@ -1,4 +1,4 @@
-package example.model;
+package com.example.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * @author cchu
  * @TableName USER_INFO
  */
 @TableName(value = "USER_INFO")
