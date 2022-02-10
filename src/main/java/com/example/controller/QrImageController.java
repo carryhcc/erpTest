@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.mapper.UserMapper;
 import com.example.model.Result;
 import com.example.model.User;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
