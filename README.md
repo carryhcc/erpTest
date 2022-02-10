@@ -26,7 +26,7 @@
 </a>
 <br />
 <a href="https://baomidou.com">
-    <img src="https://github.com/carryhcc/erpTest/src/main/resources/templates/static/images/mybatis_plus.svg?style=flat-square" width="20" height="20" alt="mybatis-Plus">
+    <img src="https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/mybatis_plus.svg?style=flat-square" width="20" height="20" alt="mybatis-Plus">
     MyBatis-Plus
 </a>
 
@@ -35,7 +35,7 @@
 
 <p>
  <a href="https://www.jetbrains.com/?from=xgqfrms">
-   <img height="200" src="https://github.com/carryhcc/erpTest/src/main/resources/templates/static/images/idea_logo.png"  alt="idea">
+   <img height="200" src="https://github.com/carryhcc/blob/master/erpTest/src/main/resources/templates/static/images/idea_logo.png"  alt="idea">
  </a>
 </p>
 
@@ -46,4 +46,4 @@ The code is available under the MIT license.
 <!-- Add the footer here -->
 #### 本项目合作伙伴以及答疑解惑
 
-![Footer](https://github.com/carryhcc/erpTest/src/main/resources/templates/static/images/idea_logo.png)
+![Footer](https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/idea_logo.png)
