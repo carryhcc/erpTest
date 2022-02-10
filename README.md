@@ -22,7 +22,7 @@
 以下公司不分先后顺序
 
 <a href="https://gitmoji.dev">
-    <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+    <img src="https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/Gitmoji.svg?style=flat-square" alt="Gitmoji">
 </a>
 <br />
 <a href="https://baomidou.com">
