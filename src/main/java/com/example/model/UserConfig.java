@@ -5,15 +5,18 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * @author cchu
  * @TableName USER_CONFIG
  */
 @TableName(value = "USER_CONFIG")
 @Data
 public class UserConfig implements Serializable {
+    @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
     /**
@@ -32,7 +35,7 @@ public class UserConfig implements Serializable {
     /**
      * 是否启用0:代表false、1:代表true
      */
-    private Integer isenabled;
+    private Integer isEnabled;
     /**
      * 添加时间
      */
@@ -89,7 +92,7 @@ public class UserConfig implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
                 && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
                 && (this.getRole() == null ? other.getRole() == null : this.getRole().equals(other.getRole()))
-                && (this.getIsenabled() == null ? other.getIsenabled() == null : this.getIsenabled().equals(other.getIsenabled()))
+                && (this.getIsEnabled() == null ? other.getIsEnabled() == null : this.getIsEnabled().equals(other.getIsEnabled()))
                 && (this.getCreateAt() == null ? other.getCreateAt() == null : this.getCreateAt().equals(other.getCreateAt()))
                 && (this.getUpdateAt() == null ? other.getUpdateAt() == null : this.getUpdateAt().equals(other.getUpdateAt()))
                 && (this.getUserLevel() == null ? other.getUserLevel() == null : this.getUserLevel().equals(other.getUserLevel()))
@@ -109,7 +112,7 @@ public class UserConfig implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getRole() == null) ? 0 : getRole().hashCode());
-        result = prime * result + ((getIsenabled() == null) ? 0 : getIsenabled().hashCode());
+        result = prime * result + ((getIsEnabled() == null) ? 0 : getIsEnabled().hashCode());
         result = prime * result + ((getCreateAt() == null) ? 0 : getCreateAt().hashCode());
         result = prime * result + ((getUpdateAt() == null) ? 0 : getUpdateAt().hashCode());
         result = prime * result + ((getUserLevel() == null) ? 0 : getUserLevel().hashCode());
@@ -132,7 +135,7 @@ public class UserConfig implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", role=").append(role);
-        sb.append(", isenabled=").append(isenabled);
+        sb.append(", isEnabled=").append(isEnabled);
         sb.append(", createAt=").append(createAt);
         sb.append(", updateAt=").append(updateAt);
         sb.append(", userLevel=").append(userLevel);
