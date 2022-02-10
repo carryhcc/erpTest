@@ -34,6 +34,15 @@ Notion块添加内容测试
     MyBatis-Plus
 </a>
 
+
+特别感谢 [JetBrains](https://www.jetbrains.com/?from=xgqfrms) 为我的开源项目提供免费的 [IntelliJ IDEA](https://www.jetbrains.com/go/?from=xgqfrms) 授权
+
+<p>
+ <a href="https://www.jetbrains.com/?from=xgqfrms">
+   <img height="200" src="https://cdn.xgqfrms.xyz/images/others/jetbrains.png" alt="idea">
+ </a>
+</p>
+
 ### License
 
 The code is available under the MIT license.

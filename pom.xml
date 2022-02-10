@@ -15,7 +15,7 @@
     <description>erpTest</description>
     <properties>
         <!-- 声明版本号，以后统一在这里进行管理-->
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>2.6.3</spring.version>
         <mysql.version>8.0.27</mysql.version>
