@@ -48,4 +48,6 @@ Notion块添加内容测试
 The code is available under the MIT license.
 
 <!-- Add the footer here -->
-![Footer](https://baomidou.com/img/logo.svg)
+####本项目合作伙伴以及答疑解惑
+
+![Footer](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi1.article.fd.zol-img.com.cn%2Ft_s640x2000%2Fg5%2FM00%2F09%2F0D%2FChMkJli_y5iIX6iGAABpOxfSJsYAAajkQMLbkQAAGlT517.gif&refer=http%3A%2F%2Fi1.article.fd.zol-img.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647049959&t=7364101ccc8a0a31d9a86190d0290136)
