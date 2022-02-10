@@ -1,3 +1,19 @@
 spring:
   profiles:
     active: dev
+server:
+  port: 8081
+logging:
+  level:
+    root: info
+  file:
+    path: log
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 配置逻辑删除（软删除）
+  global-config:
+    db-config:
+      logic-delete-value: 1  # 已删除的标记
+      logic-not-delete-value: 0  # 未删除的标记

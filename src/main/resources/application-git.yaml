@@ -1,12 +1,3 @@
-server:
-  port: 8081
-logging:
-  level:
-    root: info
-  file:
-    path: log
-mybatis-plus:
-  mapper-locations: classpath:mappers/*.xml
 spring:
   datasource:
     dynamic:
