@@ -233,8 +233,13 @@
             <artifactId>okhttp</artifactId>
             <version>4.9.3</version>
         </dependency>
+        <!--        neo4j-->
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>4.1.0</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
