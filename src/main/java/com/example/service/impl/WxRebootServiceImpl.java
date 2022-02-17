@@ -54,9 +54,9 @@ public class WxRebootServiceImpl implements WxRebootService {
         //内容
         //当前时间
         Date date = DateUtil.date();
-        Date yd = DateUtil.parse("2022-01-01");
+        Date yd = DateUtil.parse("2023-01-01");
         long ydDay = DateUtil.between(date, yd, DateUnit.DAY);
-        Date cj = DateUtil.parse("2022-02-01");
+        Date cj = DateUtil.parse("2023-01-22");
         long cjDay = DateUtil.between(date, cj, DateUnit.DAY);
         Date qm = DateUtil.parse("2022-04-05");
         long qmDay = DateUtil.between(date, qm, DateUnit.DAY);
@@ -69,14 +69,15 @@ public class WxRebootServiceImpl implements WxRebootService {
         Date gq = DateUtil.parse("2022-10-01");
         long gqDay = DateUtil.between(date, gq, DateUnit.DAY);
 
+
         String msg = "  【摸鱼办】提醒您：" + DateUtil.today() + "早上好，摸鱼人！工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的\n" +
-//                "      距离元旦还有:" + ydDay + "天  \n" +
-//                "      距离春节还有:" + cjDay + "天 \n" +
                 "      距离清明节还有:" + qmDay + "天 \n" +
                 "      距离劳动节还有:" + ldDay + "天 \n" +
                 "      距离端午节还有:" + dwDay + "天 \n" +
                 "      距离中秋节还有:" + zqDay + "天 \n" +
                 "      距离国庆节还有:" + gqDay + "天 \n" +
+                "      距离元旦还有:" + ydDay + "天  \n" +
+                "      距离春节还有:" + cjDay + "天 \n" +
                 "      祝愿所有打工仔，都能愉快渡过每一天…\n" +
                 "---------------------------------\n" +
                 "---记得订餐---记得订餐---记得订餐---\n" +

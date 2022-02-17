@@ -18,7 +18,7 @@
 
         function jiamicode() {
             $.post(
-                "/dict/encode",
+                "/emoji/encode",
                 {code: $("input[name=codee]").val()},
                 function (data) {
                     // console.log(result)
@@ -28,7 +28,7 @@
 
         function jiemicode() {
             $.post(
-                "/dict/decode",
+                "/emoji/decode",
                 {emoji: $("input[name=ccode]").val()},
                 function (data) {
                     // console.log(result)
@@ -37,17 +37,16 @@
         }
     </script>
 </head>
+<h1>emoji转换</h1>
 <label>
-    加密：
+   <h3>加密：</h3>
     <input name="codee" type="text"/>
-    <br>
     <button id="jiami">加密</button>
     <br>
 </label>
 <label>
-    解密：
+    <h3>解密：</h3>
     <input name="ccode" type="text">
-    <br>
     <button id="jiemi">解密</button>
     <br>
 </label>
@@ -55,4 +54,6 @@
 <br>
 返回结果：
 <div id="result"></div>
+<h2>网络详情</h2>
+<iframe src="https://ip.skk.moe/simple" style="width: 100%; border: 0" frameborder="1"></iframe>
 </html>
