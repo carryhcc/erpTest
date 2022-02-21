@@ -5,10 +5,10 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import com.google.common.collect.HashBiMap;
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,25 +22,14 @@ import java.util.Map;
  */
 @Slf4j
 @Component
-public class DictCache {
+public class DictCache implements ApplicationRunner {
     public static HashBiMap<String, String> biMap = HashBiMap.create();
 
     /**
      * 程序启动前 优先执行
      */
-    @PostConstruct
-    public static void init() {
-//        ExcelReader reader = ExcelUtil.getReader("/home/java/dict.xlsx");
-        ExcelReader reader = ExcelUtil.getReader("/Users/cchu/IdeaProjects/erpTest/doc/dict.xlsx");
-        List<Map<String, Object>> readAll = reader.readAll();
-        for (Map<String, Object> stringObjectMap : readAll) {
-            JSONObject jsonObject = JSONUtil.parseObj(stringObjectMap);
-            biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
-        }
-        log.info("BiMap的缓存添加成功");
-        //关闭流
-        reader.close();
-    }
+    @Value("${others.dict.localUrl}")
+    private String localUrl;
 
     public static String getValue(String code) {
         if (code.length() == 1) {
@@ -51,14 +40,23 @@ public class DictCache {
         }
     }
 
-    @PreDestroy
-    public void destroy() {
-        //系统运行结束
+    @Override
+    public void run(ApplicationArguments args) {
+        // 加载本地数据
+        loadLocal();
     }
 
-    /**
-     * //每2小时执行一次缓存
-     */
-    @Scheduled(cron = "0 0 0/2 * * ?")
-      public void cache() {init();}
+    private void loadLocal() {
+        log.info("加载本地数据");
+        ExcelReader reader = ExcelUtil.getReader(localUrl);
+        List<Map<String, Object>> list = reader.readAll();
+        for (Map<String, Object> map : list) {
+            JSONObject jsonObject = JSONUtil.parseObj(map);
+            biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
+        }
+        log.info("加载本地数据完成");
+        //关闭流
+        reader.close();
+    }
 }
+

@@ -12,7 +12,7 @@
         <result property="createAt" column="CREATE_AT" jdbcType="TIMESTAMP"/>
         <result property="updateAt" column="UPDATE_AT" jdbcType="TIMESTAMP"/>
         <result property="userLevel" column="USER_LEVEL" jdbcType="VARCHAR"/>
-        <result property="desc" column="DESC" jdbcType="VARCHAR"/>
+        <result property="remarks" column="REMARKS" jdbcType="VARCHAR"/>
         <result property="ip" column="IP" jdbcType="VARCHAR"/>
         <result property="mac" column="MAC" jdbcType="VARCHAR"/>
         <result property="payType" column="PAY_TYPE" jdbcType="VARCHAR"/>
@@ -25,7 +25,7 @@
         ID
         ,USER_ID,ROLE,
         ISENABLED,CREATE_AT,UPDATE_AT,
-        USER_LEVEL,DESC,IP,
+        USER_LEVEL,REMARKS,IP,
         MAC,PAY_TYPE,CREDIT_CARDS_TYPE,
         CREDIT_CARDS_NUMBER,CREDIT_CARDS_DATE
     </sql>
