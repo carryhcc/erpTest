@@ -12,14 +12,14 @@ import java.sql.*;
  */
 public class OracleConnection {
     public static void getConnection() throws Exception {
-        String url = "jdbc:oracle:thin:@10.7.2.234:1521/hysdyf";
-        String username = "hysdyf";
-        String password = "lBNYLKuLIhyrNnIV";
+        String url = "jdbc:oracle:thin:@127.0.0.1:1521/hysdyf";
+        String username = "root";
+        String password = "root";
         String driver = "oracle.jdbc.driver.OracleDriver";
         Class.forName(driver);
         Connection con = DriverManager.getConnection(url, username, password);
         Statement state = con.createStatement();   //容器
-        String sql = "select * from FORMINSTANCE WHERE FORMID='489kvg3k0jmmujld'";   //SQL语句
+        String sql = "select * from FORMINSTANCE WHERE FORMID='123456'";   //SQL语句
         ResultSet resultSet = state.executeQuery(sql);         //将sql语句上传至数据库执行
         while (resultSet.next()) {
 //                System.out.println(resultSet.getString(10));
