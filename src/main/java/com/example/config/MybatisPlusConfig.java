@@ -30,7 +30,7 @@ public class MybatisPlusConfig {
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
         //默认数据库类型
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.ORACLE));
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.ORACLE_12C));
         //乐观锁
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         //分页配置

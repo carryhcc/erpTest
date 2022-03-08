@@ -1,5 +1,7 @@
 package com.example.erptest;
 
+import cn.hutool.core.date.BetweenFormatter;
+import cn.hutool.core.date.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +20,8 @@ public class CharUtil {
         log.error("222222");
         log.warn("3333333");
         log.debug("444444");
+        String formatBetween = DateUtil.formatBetween(32536000L *1000, BetweenFormatter.Level.MINUTE);
+        System.out.println(formatBetween);
     }
 
 }

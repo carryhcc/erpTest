@@ -64,6 +64,26 @@
       "name": "others.dict.onlineUrl",
       "type": "java.lang.String",
       "description": "Description for others.dict.onlineUrl."
+    },
+    {
+      "name": "async.executor.thread.corePoolSize",
+      "type": "java.lang.String",
+      "description": "Description for async.executor.thread.corePoolSize."
+    },
+    {
+      "name": "async.executor.thread.maxPoolSize",
+      "type": "java.lang.String",
+      "description": "Description for async.executor.thread.maxPoolSize."
+    },
+    {
+      "name": "async.executor.thread.queueCapacity",
+      "type": "java.lang.String",
+      "description": "Description for async.executor.thread.queueCapacity."
+    },
+    {
+      "name": "async.executor.thread.name.prefix",
+      "type": "java.lang.String",
+      "description": "Description for async.executor.thread.name.prefix."
     }
   ]
 }
