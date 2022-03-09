@@ -15,8 +15,8 @@ import java.util.Collections;
  */
 public class AutoGenerator {
     public static void main(String[] args) {
-        FastAutoGenerator.create("jdbc:mysql://hcc19970824.mysql.rds.aliyuncs.com:3306/rrsp?useUnicode=true&characterEncoding=utf8",
-                        "root", "Hcc19970824")
+        FastAutoGenerator.create("jdbc:mysql://127.0.0.1:3306/rrsp?useUnicode=true&characterEncoding=utf8",
+                        "root", "root")
                 // 全局配置
                 .globalConfig(builder -> {
                     builder.author("hcc") // 设置作者

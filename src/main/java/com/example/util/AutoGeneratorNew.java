@@ -16,8 +16,8 @@ import java.util.List;
  */
 public class AutoGeneratorNew {
     public static void main(String[] args) {
-        FastAutoGenerator.create("jdbc:mysql://hcc19970824.mysql.rds.aliyuncs.com:3306/rrsp?useUnicode=true&characterEncoding=utf8",
-                        "root", "Hcc19970824")
+        FastAutoGenerator.create("jdbc:mysql://127.0.0.1:3306/rrsp?useUnicode=true&characterEncoding=utf8",
+                        "root", "root")
                 // 全局配置
                 .globalConfig((scanner, builder) -> builder.author(scanner.apply("请输入作者名称？")).fileOverride())
                 // 包配置

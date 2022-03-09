@@ -27,9 +27,9 @@ public class DocLookTest {
         List<TestUser> all = reader.readAll(TestUser.class);
         System.out.println(Arrays.toString(all.toArray()));
         String driverClassName = "com.mysql.cj.jdbc.Driver";    //启动驱动
-        String url = "jdbc:mysql://hcc19970824.mysql.rds.aliyuncs.com:3306/rrsp?serverTimezone = GMT%2B8";    //设置连接路径
+        String url = "jdbc:mysql://127.0.0.1:3306/rrsp?serverTimezone = GMT%2B8";    //设置连接路径
         String username = "root";    //数据库用户名
-        String password = "Hcc19970824";    //数据库连接密码
+        String password = "root";    //数据库连接密码
         Connection con = null;        //连接
         PreparedStatement pstmt = null;    //使用预编译语句
         ResultSet rs = null;    //获取的结果集
