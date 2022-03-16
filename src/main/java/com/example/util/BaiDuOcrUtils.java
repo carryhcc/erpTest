@@ -28,8 +28,8 @@ import java.util.Map;
  */
 @Component
 public class BaiDuOcrUtils {
-    public static String API_KEY = "24657052";
-    public static String SECRET_KEY = "RNB8jiOApDiH8lvKA7ddcvEg";
+    public static String API_KEY = "xxxxxx";
+    public static String SECRET_KEY = "xxxxxx";
     public static String TOKEN = "https://aip.baidubce.com/oauth/2.0/token";
     public static String OCR = "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard";
 
@@ -124,16 +124,14 @@ public class BaiDuOcrUtils {
             try {
                 byte[] imgData = FileUtil.readFileByBytes(filePath);
                 String imgStr = Base64Util.encode(imgData);
-                String imgParam = URLEncoder.encode(imgStr, "UTF-8");
+                String imgParam = URLEncoder.encode(imgStr, StandardCharsets.UTF_8);
 
                 String param = "id_card_side=" + "front" + "&image=" + imgParam;
 
-                String result = HttpRequest.post(url)
+                return HttpRequest.post(url)
                         .header("host", "aip.baidubce.com")
                         .body(param.getBytes(StandardCharsets.UTF_8))
                         .execute().body();
-
-                return result;
             } catch (Exception e) {
                 e.printStackTrace();
             }
