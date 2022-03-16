@@ -8,7 +8,7 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-import static org.apache.poi.util.IOUtils.toByteArray;
+import static org.apache.commons.io.IOUtils.toByteArray;
 
 /**
  * Created by IntelliJ IDEA.

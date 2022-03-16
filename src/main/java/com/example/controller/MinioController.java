@@ -71,13 +71,15 @@ public class MinioController {
     public Result upload(@RequestParam("file") MultipartFile file) throws IOException {
         //得到文件流
         InputStream is = file.getInputStream();
-        //文件名
+        //源文件名
         String fileName = file.getOriginalFilename();
+        //存储到minio的文件名
         String newFileName = System.currentTimeMillis() + "." + StringUtils.substringAfterLast(fileName, ".");
         //类型
         String contentType = file.getContentType();
         minioService.uploadObject(is, newFileName, contentType);
-        return Result.success("下载地址：" + endpoint + "/" + bucketName + "/" + fileName);
+        //返回下载地址
+        return Result.success(endpoint + "/" + bucketName + "/" + fileName);
     }
 
     /**
