@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import cn.hutool.core.util.NumberUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class EmailController {
         System.out.println(email);
         System.out.println("结果1：" + matches);
         System.out.println("结果2：" + matches2);
+        NumberUtil.isLong("123");
     }
 
 }
