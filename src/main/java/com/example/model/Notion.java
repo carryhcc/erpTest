@@ -2,7 +2,6 @@ package com.example.model;
 
 import lombok.Data;
 
-import jakarta.validation.constraints.NotNull;
 
 
 /**
@@ -16,7 +15,6 @@ import jakarta.validation.constraints.NotNull;
 public class Notion {
     private String reboot;
     private String pereId;
-    @NotNull(message = "标题不能为空")
     private String title;
     private String msg;
 }

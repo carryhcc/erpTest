@@ -1,12 +1,12 @@
 package com.example.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
-import com.example.mapper.DictMapper;
+
 import com.example.mapper.EmojiMsgMapper;
-import com.example.model.Dict;
 import com.example.model.DictCache;
 import com.example.model.EmojiMsg;
+import com.example.service.EmojiMsgService;
 import com.example.util.UnicodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Date;
@@ -31,9 +31,8 @@ import java.util.Date;
 public class EmojiController {
 
     @Resource
-    public DictMapper dictMapper;
-    @Resource
-    public EmojiMsgMapper emojiMsgMapper;
+//    public EmojiMsgService service;
+    public EmojiMsgMapper mapper;
 
     /**
      * 加密
@@ -42,6 +41,7 @@ public class EmojiController {
      * @return
      */
     @PostMapping("/encode")
+    @DS("mysql")
     public String encodeEmoji(@RequestParam String code) throws UnknownHostException {
         log.info("初始语句：{}", code);
 //        存储语句到数据库
@@ -50,7 +50,7 @@ public class EmojiController {
         emojiMsg.setMsg(code);
         emojiMsg.setIp(InetAddress.getLocalHost().getHostAddress());
         emojiMsg.setCreateAt(new Date());
-        emojiMsgMapper.insert(emojiMsg);
+        mapper.insert(emojiMsg);
         //字符串转Unicode符
         String s = UnicodeUtil.toUnicode(code, true);
         log.info("中途转换：{}", code);
@@ -63,22 +63,6 @@ public class EmojiController {
         log.info("emojiOut：{}", emojiOut);
         return emojiOut.toString();
     }
-
-    String dict(String str) {
-        QueryWrapper<Dict> wrapper = new QueryWrapper<>();
-        if (str.length() == 1) {
-            wrapper.eq("dict_key", str);
-            wrapper.eq("status", 0);
-            Dict dict = dictMapper.selectOne(wrapper);
-            return dict.getDictValue();
-        } else {
-            wrapper.eq("dict_value", str);
-            wrapper.eq("status", 0);
-            Dict dict = dictMapper.selectOne(wrapper);
-            return dict.getDictKey();
-        }
-    }
-
     /**
      * 解密
      *

@@ -4,7 +4,7 @@ import com.example.service.WxRebootService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 
 /**

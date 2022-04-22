@@ -7,7 +7,7 @@ import com.example.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
