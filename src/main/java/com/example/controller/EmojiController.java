@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.example.mapper.EmojiMsgMapper;
 import com.example.model.DictCache;
 import com.example.model.EmojiMsg;
-import com.example.service.EmojiMsgService;
 import com.example.util.UnicodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;

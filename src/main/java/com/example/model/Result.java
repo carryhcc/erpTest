@@ -1,6 +1,7 @@
 package com.example.model;
 
 import com.example.model.enmu.ResultEnum;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Data
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Result<T> {
 
     /**
@@ -37,7 +39,7 @@ public class Result<T> {
 
     private Result(String msg) {
         this.code = ResultEnum.ERROR.getCode();
-        this.data = null;
+        this.data = getData();
         this.msg = msg;
     }
 

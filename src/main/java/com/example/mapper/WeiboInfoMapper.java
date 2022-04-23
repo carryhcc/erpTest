@@ -1,13 +1,13 @@
 package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.model.Dict;
+import com.example.model.WeiboInfo;
 
 /**
  * Created by IntelliJ IDEA.
  *
  * @author : cchu
- * Date: 2021/12/16 09:35
+ * Date: 2022/4/22 23:30
  */
-public interface DictMapper extends BaseMapper<Dict> {
+public interface WeiboInfoMapper extends BaseMapper<WeiboInfo> {
 }
