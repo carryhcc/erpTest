@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,8 +17,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HtmlController {
 
-    @GetMapping("/index")
-    public String index(Model model) {
-        return "index";
+    @RequestMapping("/index")
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+    @RequestMapping("/weibo")
+    public ModelAndView weibo(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("weibo");
+        return modelAndView;
+    }
+    @RequestMapping("/emoji")
+    public ModelAndView emoji(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("emoji");
+        return modelAndView;
     }
 }

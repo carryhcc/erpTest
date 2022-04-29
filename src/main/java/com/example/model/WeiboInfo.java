@@ -30,7 +30,9 @@ public class WeiboInfo {
     @TableField(value = "WEIBO_HOME")
     private String weiboHome;
 
+    @TableField(exist = false)
     private Integer status;
 
+    @TableField(exist = false)
     private String message;
 }
