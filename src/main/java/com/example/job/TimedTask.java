@@ -26,7 +26,7 @@ public class TimedTask {
      * 每天执行一次 摸🐟
      */
     @Scheduled(cron = "0 0 10 * * ?")
-    private void medicineStatistics() {
+    private void moFish() {
         log.info("摸鱼计时器任务开始执行");
         wxRebootService.moFish();
         log.info("摸鱼计时器任务执行结束");

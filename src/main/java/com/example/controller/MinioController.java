@@ -68,7 +68,7 @@ public class MinioController {
      * @throws IOException
      */
     @PostMapping("/upload")
-    public Result upload(@RequestParam("file") MultipartFile file) throws IOException {
+    public Result<String> upload(@RequestParam("file") MultipartFile file) throws IOException {
         //得到文件流
         InputStream is = file.getInputStream();
         //源文件名
@@ -109,7 +109,7 @@ public class MinioController {
      */
     @GetMapping("/getHttpUrl")
     @ResponseBody
-    public Result getHttpUrl(String filename) {
+    public Result<String> getHttpUrl(String filename) {
         String url = minioService.getObjectUrl(filename);
         return Result.success(url);
     }

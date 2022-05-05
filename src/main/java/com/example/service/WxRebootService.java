@@ -14,6 +14,7 @@ public interface WxRebootService {
 
     /**
      * 自定义执行
+     * @param msg
      */
     void run(String msg);
 }

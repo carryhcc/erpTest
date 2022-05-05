@@ -20,17 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 @Slf4j
-public class MinioService {
-    final
-    MinioConfig minioConfig;
-    final
-    MinioClient minioClient;
-
-    public MinioService(MinioConfig minioConfig,
-                        MinioClient minioClient) {
-        this.minioConfig = minioConfig;
-        this.minioClient = minioClient;
-    }
+public record MinioService(MinioConfig minioConfig, MinioClient minioClient) {
 
     /**
      * 获取列表
