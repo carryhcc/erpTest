@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
-@MapperScan("com.example.*")
+@MapperScan("com.example.mapper")
 public class ErpTestApplication {
 
     public static void main(String[] args) {

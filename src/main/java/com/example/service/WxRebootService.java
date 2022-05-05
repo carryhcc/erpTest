@@ -11,4 +11,9 @@ public interface WxRebootService {
      * 摸鱼⏰
      */
     void moFish();
+
+    /**
+     * 自定义执行
+     */
+    void run(String msg);
 }

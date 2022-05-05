@@ -99,4 +99,21 @@ public class WxRebootServiceImpl implements WxRebootService {
 //        NotionInstallUtil.addNotion("摸鱼",msg);
         System.out.println(result);
     }
+
+    @Override
+    public void run(String msg) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("msgtype", "text");
+        HashMap<String, Object> content = new HashMap<>();
+        content.put("content", msg);
+        String[] arr = {"@all"};
+        content.put("mentioned_list", arr);
+        map.put("text", content);
+        String body = JSONUtil.toJsonStr(map);
+        String result = HttpRequest.post(url + key)
+                .body(body)
+                .execute().body();
+        System.out.println(result);
+        System.out.println(msg);
+    }
 }
