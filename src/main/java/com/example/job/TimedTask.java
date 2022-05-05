@@ -31,4 +31,26 @@ public class TimedTask {
         wxRebootService.moFish();
         log.info("摸鱼计时器任务执行结束");
     }
+
+    /**
+     * 每周三11，50提醒抬饭
+     */
+    @Scheduled(cron = "0 50 11 ? * WED")
+    private void eat() {
+        log.info("订饭任务开始执行");
+        String msg="现在是星期三中午11:50,准备开始抬饭！！！";
+        wxRebootService.run(msg);
+        log.info("订饭任务执行结束");
+    }
+
+    /**
+     * 每周五17:00提醒写周报
+     */
+    @Scheduled(cron = "0 0 17 ? * THUR")
+    private void weekly() {
+        log.info("写周报任务开始执行");
+        String msg="现在是星期五下午17:00,准备写周报！！！";
+        wxRebootService.run(msg);
+        log.info("写周报任务执行结束");
+    }
 }
