@@ -46,7 +46,7 @@ public class TimedTask {
     /**
      * 每周五17:00提醒写周报
      */
-    @Scheduled(cron = "0 0 17 ? * THUR")
+    @Scheduled(cron = "0 0 17 ? * FRI")
     private void weekly() {
         log.info("写周报任务开始执行");
         String msg="现在是星期五下午17:00,准备写周报！！！";

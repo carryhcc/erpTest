@@ -79,7 +79,7 @@ public class MinioController {
         String contentType = file.getContentType();
         minioService.uploadObject(is, newFileName, contentType);
         //返回下载地址
-        return Result.success(endpoint + "/" + bucketName + "/" + fileName);
+        return Result.success(endpoint + "/" + bucketName + "/" + newFileName);
     }
 
     /**
