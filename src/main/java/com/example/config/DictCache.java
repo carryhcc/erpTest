@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.config;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -15,8 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- *
+ * 读取字典配置并缓存
  * @author : cchu
  * Date: 2021/12/16 16:51
  */
@@ -28,7 +27,8 @@ public class DictCache implements ApplicationRunner {
     /**
      * 程序启动前 优先执行
      */
-    @Value("${others.dict.localUrl}")
+//    @Value("${others.dict.localUrl}")
+    @Value("${others.dict.onlineUrl}")
     private String localUrl;
 
     public static String getValue(String code) {
