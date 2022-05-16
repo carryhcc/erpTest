@@ -39,7 +39,7 @@ public class TimedTask {
     private void eat() {
         log.info("订饭任务开始执行");
         String msg="现在是星期三中午11:50,准备开始抬饭！！！";
-        wxRebootService.run(msg);
+        wxRebootService.runText(msg);
         log.info("订饭任务执行结束");
     }
 
@@ -50,7 +50,13 @@ public class TimedTask {
     private void weekly() {
         log.info("写周报任务开始执行");
         String msg="现在是星期五下午17:00,准备写周报！！！";
-        wxRebootService.run(msg);
+        wxRebootService.runText(msg);
         log.info("写周报任务执行结束");
+    }
+    @Scheduled(cron = "0 0 18 * * ?")
+    private void logTime() {
+        log.info("提醒写logTime开始执行");
+        wxRebootService.runLogTimeMsg();
+        log.info("提醒写logTime执行完毕");
     }
 }

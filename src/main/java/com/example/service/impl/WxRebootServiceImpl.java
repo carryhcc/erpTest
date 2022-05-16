@@ -6,10 +6,12 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.example.model.wxRtboot.Articles;
 import com.example.service.WxRebootService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -71,8 +73,8 @@ public class WxRebootServiceImpl implements WxRebootService {
 
 
         String msg = "  【摸鱼办】提醒您：" + DateUtil.today() + "早上好，摸鱼人！工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的\n" +
-                "      距离清明节还有:" + qmDay + "天 \n" +
-                "      距离劳动节还有:" + ldDay + "天 \n" +
+//                "      距离清明节还有:" + qmDay + "天 \n" +
+//                "      距离劳动节还有:" + ldDay + "天 \n" +
                 "      距离端午节还有:" + dwDay + "天 \n" +
                 "      距离中秋节还有:" + zqDay + "天 \n" +
                 "      距离国庆节还有:" + gqDay + "天 \n" +
@@ -101,7 +103,7 @@ public class WxRebootServiceImpl implements WxRebootService {
     }
 
     @Override
-    public void run(String msg) {
+    public void runText(String msg) {
         HashMap<String, Object> map = new HashMap<>();
         map.put("msgtype", "text");
         HashMap<String, Object> content = new HashMap<>();
@@ -109,11 +111,33 @@ public class WxRebootServiceImpl implements WxRebootService {
         String[] arr = {"@all"};
         content.put("mentioned_list", arr);
         map.put("text", content);
+        run(map);
+    }
+
+    @Override
+    public void runLogTimeMsg() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("msgtype", "news");
+        HashMap<String, Object> news = new HashMap<>();
+        ArrayList<Articles> articlesList = new ArrayList<>();
+        Articles articles = new Articles();
+        articles.setTitle("logTime");
+        articles.setDescription("每日填写logTime！！！");
+        articles.setUrl("https://jira.yyjzt.com/secure/Tempo.jspa#/reports/report/7f70b14d-f568-40e2-92bf-73de3f50a6d6?columns=WORKED_COLUMN&dateDisplayType=days&from=2022-05-01&groupBy=worker&periodType=CURRENT_PERIOD&subPeriodType=MONTH&teamId=14&to=2022-05-31&viewType=TIMESHEET");
+        articles.setPicurl("https://img.jk.com/home/home_icon.png");
+        articlesList.add(articles);
+        news.put("articles", articlesList);
+        map.put("news", news);
+        run(map);
+    }
+
+    /**
+     * 调用接口
+     */
+    void run(HashMap<String, Object> map) {
         String body = JSONUtil.toJsonStr(map);
-        String result = HttpRequest.post(url + key)
+        HttpRequest.post(url + key)
                 .body(body)
                 .execute().body();
-        System.out.println(result);
-        System.out.println(msg);
     }
 }

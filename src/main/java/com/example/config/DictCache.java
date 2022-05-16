@@ -9,13 +9,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 /**
  * 读取字典配置并缓存
+ *
  * @author : cchu
  * Date: 2021/12/16 16:51
  */
@@ -27,9 +31,14 @@ public class DictCache implements ApplicationRunner {
     /**
      * 程序启动前 优先执行
      */
-//    @Value("${others.dict.localUrl}")
-    @Value("${others.dict.onlineUrl}")
+    @Value("${others.dict.localUrl}")
     private String localUrl;
+
+    @Value("${others.dict.onlineUrl}")
+    private String onlineUrl;
+
+    @Resource
+    private Environment environment;
 
     public static String getValue(String code) {
         if (code.length() == 1) {
@@ -47,14 +56,21 @@ public class DictCache implements ApplicationRunner {
     }
 
     private void loadLocal() {
-        log.info("加载本地数据");
-        ExcelReader reader = ExcelUtil.getReader(localUrl);
+        // 返回为[dev]
+        String activeProfiles =Arrays.toString(environment.getActiveProfiles()) ;
+        log.info("加载"+ activeProfiles +"环境数据");
+        ExcelReader reader;
+        try {
+            reader = ExcelUtil.getReader(onlineUrl);
+        } catch (Exception file) {
+            reader = ExcelUtil.getReader(localUrl);
+        }
         List<Map<String, Object>> list = reader.readAll();
         for (Map<String, Object> map : list) {
             JSONObject jsonObject = JSONUtil.parseObj(map);
             biMap.put(String.valueOf(jsonObject.get("dictKey")), String.valueOf(jsonObject.get("dictValue")));
         }
-        log.info("加载本地数据完成");
+        log.info("加载"+ activeProfiles +"环境数据完成");
         //关闭流
         reader.close();
     }
