@@ -53,6 +53,10 @@ public class TimedTask {
         wxRebootService.runText(msg);
         log.info("写周报任务执行结束");
     }
+
+    /**
+     * 每天18:00提醒写logTime
+     */
     @Scheduled(cron = "0 0 18 * * ?")
     private void logTime() {
         log.info("提醒写logTime开始执行");
