@@ -64,29 +64,29 @@ public class WxRebootServiceImpl implements WxRebootService {
                 " \n温度：" + day.getStr("high") + day.getStr("low") +
                 " \n风向：" + day.getStr("fx") +
 
-                " \n" + jsonObject1.getStr("date")+
+                " \n" + jsonObject1.getStr("date") +
                 " \n天气:" + jsonObject1.getStr("type") +
-                " 温度：" + jsonObject1.getStr("high") + jsonObject1.getStr("low") +
+                " 温度：" + jsonObject1.getStr("high") + " " + jsonObject1.getStr("low") +
                 " 风向：" + jsonObject1.getStr("fengxiang") +
 
-                " \n" + jsonObject2.getStr("date")+
+                " \n" + jsonObject2.getStr("date") +
                 " \n天气:" + jsonObject2.getStr("type") +
-                " 温度：" + jsonObject2.getStr("high") + jsonObject2.getStr("low") +
+                " 温度：" + jsonObject2.getStr("high") + " " + jsonObject2.getStr("low") +
                 " 风向：" + jsonObject2.getStr("fengxiang") +
 
-                " \n" + jsonObject3.getStr("date")+
+                " \n" + jsonObject3.getStr("date") +
                 " \n天气:" + jsonObject3.getStr("type") +
-                " 温度：" + jsonObject3.getStr("high") + jsonObject3.getStr("low") +
+                " 温度：" + jsonObject3.getStr("high") + " " + jsonObject3.getStr("low") +
                 " 风向：" + jsonObject3.getStr("fengxiang") +
 
-                " \n" + jsonObject4.getStr("date")+
+                " \n" + jsonObject4.getStr("date") +
                 " \n天气:" + jsonObject4.getStr("type") +
-                " 温度：" + jsonObject4.getStr("high") + jsonObject4.getStr("low") +
+                " 温度：" + jsonObject4.getStr("high") + " " + jsonObject4.getStr("low") +
                 " 风向：" + jsonObject4.getStr("fengxiang") +
 
-                " \n" + jsonObject5.getStr("date")+
+                " \n" + jsonObject5.getStr("date") +
                 " \n天气:" + jsonObject5.getStr("type") +
-                " 温度：" + jsonObject5.getStr("high") + jsonObject5.getStr("low") +
+                " 温度：" + jsonObject5.getStr("high") + " " + jsonObject5.getStr("low") +
                 " 风向：" + jsonObject5.getStr("fengxiang") +
 
                 " \n温馨提醒：" + data.getStr("ganmao");
