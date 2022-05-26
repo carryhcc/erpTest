@@ -4,6 +4,7 @@ import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.example.model.wxRtboot.Articles;
@@ -41,14 +42,55 @@ public class WxRebootServiceImpl implements WxRebootService {
         String result = HttpUtil.get(url, paramMap);
 
         JSONObject data = JSONUtil.parseObj(JSONUtil.parseObj(result).getStr("data"));
+        //解析今天的天气
         String yesterday = data.getStr("yesterday");
+        //解析未来5天的天气
+        JSONArray forecast = data.getJSONArray("forecast");
+        //下一天
+        JSONObject jsonObject1 = forecast.getJSONObject(0);
+        //下两天
+        JSONObject jsonObject2 = forecast.getJSONObject(1);
+        //下三天
+        JSONObject jsonObject3 = forecast.getJSONObject(2);
+        //下四天
+        JSONObject jsonObject4 = forecast.getJSONObject(3);
+        //下五天
+        JSONObject jsonObject5 = forecast.getJSONObject(4);
+
         JSONObject day = JSONUtil.parseObj(yesterday);
         return "您所在的城市为" + data.getStr("city") + "\n今天是:" + DateUtil.today() +
 //                " 风力:" + day.getStr("fl") +
                 " \n天气:" + day.getStr("type") +
                 " \n温度：" + day.getStr("high") + day.getStr("low") +
                 " \n风向：" + day.getStr("fx") +
+
+                " \n" + jsonObject1.getStr("date")+
+                " \n天气:" + jsonObject1.getStr("type") +
+                " 温度：" + jsonObject1.getStr("high") + jsonObject1.getStr("low") +
+                " 风向：" + jsonObject1.getStr("fengxiang") +
+
+                " \n" + jsonObject2.getStr("date")+
+                " \n天气:" + jsonObject2.getStr("type") +
+                " 温度：" + jsonObject2.getStr("high") + jsonObject2.getStr("low") +
+                " 风向：" + jsonObject2.getStr("fengxiang") +
+
+                " \n" + jsonObject3.getStr("date")+
+                " \n天气:" + jsonObject3.getStr("type") +
+                " 温度：" + jsonObject3.getStr("high") + jsonObject3.getStr("low") +
+                " 风向：" + jsonObject3.getStr("fengxiang") +
+
+                " \n" + jsonObject4.getStr("date")+
+                " \n天气:" + jsonObject4.getStr("type") +
+                " 温度：" + jsonObject4.getStr("high") + jsonObject4.getStr("low") +
+                " 风向：" + jsonObject4.getStr("fengxiang") +
+
+                " \n" + jsonObject5.getStr("date")+
+                " \n天气:" + jsonObject5.getStr("type") +
+                " 温度：" + jsonObject5.getStr("high") + jsonObject5.getStr("low") +
+                " 风向：" + jsonObject5.getStr("fengxiang") +
+
                 " \n温馨提醒：" + data.getStr("ganmao");
+
     }
 
     @Override
