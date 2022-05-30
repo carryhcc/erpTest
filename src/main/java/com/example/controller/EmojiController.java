@@ -41,13 +41,18 @@ public class EmojiController {
      */
     @PostMapping("/encode")
     @DS("mysql")
-    public String encodeEmoji(@RequestParam String code) throws UnknownHostException {
+    public String encodeEmoji(@RequestParam String code){
         log.info("初始语句：{}", code);
 //        存储语句到数据库
         EmojiMsg emojiMsg = new EmojiMsg();
         emojiMsg.setId(IdWorker.getId());
         emojiMsg.setMsg(code);
-        emojiMsg.setIp(InetAddress.getLocalHost().getHostAddress());
+        try {
+            String hostAddress = InetAddress.getLocalHost().getHostAddress();
+            emojiMsg.setIp(hostAddress);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         emojiMsg.setCreateAt(new Date());
         mapper.insert(emojiMsg);
         //字符串转Unicode符
