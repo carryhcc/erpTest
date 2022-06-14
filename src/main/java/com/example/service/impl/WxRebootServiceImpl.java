@@ -177,9 +177,43 @@ public class WxRebootServiceImpl implements WxRebootService {
      * 调用接口
      */
     void run(HashMap<String, Object> map) {
+        if(runWeekend(new Date())){
+            return;
+        }
         String body = JSONUtil.toJsonStr(map);
         HttpRequest.post(url + key)
                 .body(body)
                 .execute().body();
+    }
+    /**
+     * 查询是否周末或节假日
+     */
+    Boolean runWeekend(Date date) {
+        //api地址http://timor.tech/api/holiday/info/yyyy-MM-dd
+        String url="https://timor.tech/api/holiday/info/";
+       String format = DateUtil.format(date, "yyyy-MM-dd");
+        String result = HttpRequest.get(url+format)
+                .execute().body();
+        JSONObject jsonObject = JSONUtil.parseObj(result);
+       System.out.println("jsonObject"+jsonObject);
+//        服务状态
+        String status = jsonObject.get("code").toString();
+        if(status.equals("0")){
+            String type = jsonObject.get("type").toString();
+            System.out.println("日期详情"+type);
+            JSONObject entries = JSONUtil.parseObj(type);
+            if (entries.get("type").toString().equals("6")|entries.get("week").toString().equals("7")){
+                System.out.println("跳过周末true");
+                return true;
+            }
+            if (jsonObject.get("holiday")!=null){
+                System.out.println("跳过节假日true");
+                return true;
+            }
+            System.out.println("非工作日和周末正常运行false");
+            return false;
+        }
+       System.out.println("正常运行false");
+        return false;
     }
 }
