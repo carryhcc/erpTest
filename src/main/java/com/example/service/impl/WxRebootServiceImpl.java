@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONArray;
@@ -184,6 +185,7 @@ public class WxRebootServiceImpl implements WxRebootService {
         HttpRequest.post(url + key)
                 .body(body)
                 .execute().body();
+        System.out.println("执行成功！！！");
     }
     /**
      * 查询是否周末或节假日
@@ -206,7 +208,7 @@ public class WxRebootServiceImpl implements WxRebootService {
                 System.out.println("跳过周末true");
                 return true;
             }
-            if (jsonObject.get("holiday")!=null){
+            if (ObjectUtil.equals(jsonObject.get("holiday"),"null")){
                 System.out.println("跳过节假日true");
                 return true;
             }
